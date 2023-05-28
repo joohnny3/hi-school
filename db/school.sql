@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- 主機： localhost
--- 產生時間： 2023 年 05 月 28 日 11:45
+-- 產生時間： 2023 年 05 月 28 日 17:16
 -- 伺服器版本： 10.4.28-MariaDB
 -- PHP 版本： 8.2.4
 
@@ -20,6 +20,30 @@ SET time_zone = "+00:00";
 --
 -- 資料庫： `school`
 --
+
+-- --------------------------------------------------------
+
+--
+-- 資料表結構 `class`
+--
+
+CREATE TABLE `class` (
+  `class_code` varchar(10) NOT NULL,
+  `dept` varchar(10) NOT NULL,
+  `class_num` varchar(10) DEFAULT NULL,
+  `teacher` varchar(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- 傾印資料表的資料 `class`
+--
+
+INSERT INTO `class` (`class_code`, `dept`, `class_num`, `teacher`) VALUES
+('503', '化工材料', NULL, ''),
+('502', '商業管理', NULL, ''),
+('505', '大眾傳播', NULL, ''),
+('501', '綜合教育', NULL, ''),
+('504', '觀光事業', NULL, '');
 
 -- --------------------------------------------------------
 
@@ -59,6 +83,12 @@ CREATE TABLE `students` (
 --
 -- 已傾印資料表的索引
 --
+
+--
+-- 資料表索引 `class`
+--
+ALTER TABLE `class`
+  ADD PRIMARY KEY (`dept`,`class_code`,`teacher`);
 
 --
 -- 資料表索引 `permissions`
