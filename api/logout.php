@@ -1,6 +1,5 @@
 <?php require_once "../db.php";
 
-unset($_SESSION['login']);
-
+$_SESSION = [];
 header("location:../index.php");
 ?>

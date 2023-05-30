@@ -20,37 +20,29 @@
     ?>
         <a href="index.php?do=login">登入</a>
         <a href="index.php?do=reg">註冊</a>
-    <?php
+        <?php
     }else{
-    ?>
+        ?>
         <a href="./api/logout.php">登出</a>
     <?php
-        // switch($_SESSION['pr']){
-        //     case "super":
-        //         echo "<a href='backend.php?do=super'>系統管理</a>";
-        //     break; 
-        //     case "member":
-        //         echo "<a href='backend.php?do=member'>會員中心</a>";
-        //     break;
-        //     case "admin":
-        //         echo "<a href='backend.php?do=admin'>管理</a>";
-        //     break;
-        // }
-    }
+    //   if ($_SESSION['role']='student') {
+    //     include "./front/student.php";
+    //   }
+     }
     ?>
 </header>
 <main>
-
-<?php
-
-$do=$_GET['do']??'list';
+    
+    <?php
+// print_r($_SESSION);
+$do=$_GET['do']??'login';
 
 $file="./front/".$do.".php";
 
 if(file_exists($file)){
     include $file;
 }else{
-    include "./front/list.php";
+    include "./front/login.php";
 }
 ?>
 

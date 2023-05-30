@@ -1,27 +1,35 @@
 <?php require_once "../db.php";
 
-$sql="SELECT count(*) from `permissions` where `user`='{$_POST['user']}' && `password`='{$_POST['password']}'";
+$sql = "SELECT count(*) from `permissions` where `user`='{$_POST['user']}' && `password`='{$_POST['password']}'";
 
-$chk=$pdo->query($sql)->fetchColumn();
+$chk = $pdo->query($sql)->fetchColumn();
 
 
-if($chk){
-    
-    $sql_role="SELECT `role` from `permissions` where `user`='{$_POST['user']}' && `password`='{$_POST['password']}'";
-    
-    $role=$pdo->query($sql_role)->fetchColumn();
+if ($chk) {
 
-    $_SESSION['login']=$_POST['user'];
-    
-    $_SESSION['role']=$role;
+    $sql_value = "SELECT `role`,`school_num` from `permissions`,`students` where `user`='{$_POST['user']}' && `password`='{$_POST['password']}'";
 
+    $value = $pdo->query($sql_value)->fetch(PDO::FETCH_ASSOC);
+
+
+    $_SESSION['login'] = $_POST['user'];
+    $_SESSION['school_num'] = $value['school_num'];
+    $_SESSION['role'] = $value['role'];
+    print "<pre>";
+    print_r($_SESSION);
+    print "</pre>";
     // if(isset($_SESSION['position'])){
     //     header("location:".$_SESSION['position']);
     //     unset($_SESSION['position']);
     //     exit();
     // }
-
-    header("location:../index.php");
-}else{
+    if ($value['role'] == "teacher") {
+        print "test";
+    } elseif ($value['role'] == "student") {
+        header("location:../index.php?do=student");
+    } else {
+        print "來者何人?";
+    }
+} else {
     header("location:../index.php?do=login&error=1");
 }
