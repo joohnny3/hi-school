@@ -7,7 +7,7 @@ $chk = $pdo->query($sql)->fetchColumn();
 
 if ($chk) {
 
-    $sql_value = "SELECT `role`,`school_num` from `permissions`,`students` where `user`='{$_POST['user']}' && `password`='{$_POST['password']}'";
+    $sql_value = "SELECT `role`,`school_num` from `permissions`,`students` where `user`='{$_POST['user']}' && `password`='{$_POST['password']}' && `school_num`='{$_POST['user']}'";
 
     $value = $pdo->query($sql_value)->fetch(PDO::FETCH_ASSOC);
 
@@ -15,9 +15,9 @@ if ($chk) {
     $_SESSION['login'] = $_POST['user'];
     $_SESSION['school_num'] = $value['school_num'];
     $_SESSION['role'] = $value['role'];
-    print "<pre>";
-    print_r($_SESSION);
-    print "</pre>";
+    // print "<pre>";
+    // print_r($value);
+    // print "</pre>";
     // if(isset($_SESSION['position'])){
     //     header("location:".$_SESSION['position']);
     //     unset($_SESSION['position']);

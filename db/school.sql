@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- 主機： localhost
--- 產生時間： 2023 年 05 月 30 日 15:51
+-- 產生時間： 2023 年 05 月 30 日 16:57
 -- 伺服器版本： 10.4.28-MariaDB
 -- PHP 版本： 8.2.4
 
@@ -39,10 +39,10 @@ CREATE TABLE `class` (
 --
 
 INSERT INTO `class` (`class_code`, `dept`, `class_num`, `teacher`) VALUES
-('503', '化工材料', NULL, '毛家男'),
+('503', '化工材料', NULL, '李永樂'),
 ('502', '商業管理', NULL, '方玉婷'),
 ('505', '大眾傳播', NULL, '朱怡蓉'),
-('501', '綜合教育', '1', '林慧卿'),
+('501', '綜合教育', '2', '林慧卿'),
 ('504', '觀光事業', NULL, '李禬敏');
 
 -- --------------------------------------------------------
@@ -67,12 +67,13 @@ CREATE TABLE `permissions` (
 INSERT INTO `permissions` (`id`, `name`, `user`, `password`, `role`, `uni_id`) VALUES
 (1, '林慧卿', 'admin501', 'admin', 'teacher', 'G200000123'),
 (2, '方玉婷', 'admin502', 'admin', 'teacher', 'K100000199'),
-(3, '毛家男', 'admin503', 'admin', 'teacher', 'C100000067'),
+(3, '李永樂', 'admin503', 'admin', 'teacher', 'C100000067'),
 (4, '李禬敏', 'admin504', 'admin', 'teacher', 'C100000209'),
 (5, '朱怡蓉', 'admin505', 'admin', 'teacher', 'F200000131'),
 (6, '張育誠', 'root', '9902', 'student', 'F129047308'),
 (10, '古利夏', 'admin506', 'admin', 'teacher', 'X678954321'),
-(48, '艾蓮葉卡', '11250101', '11250101', 'student', 'A123456789');
+(48, '艾蓮葉卡', '11250101', '11250101', 'student', 'A123456789'),
+(49, '李子柒', '11250102', '11250102', 'student', 'B199007067');
 
 -- --------------------------------------------------------
 
@@ -90,7 +91,8 @@ CREATE TABLE `scores` (
 --
 
 INSERT INTO `scores` (`school_num`, `scores`) VALUES
-(11250101, NULL);
+(11250101, NULL),
+(11250102, NULL);
 
 -- --------------------------------------------------------
 
@@ -117,8 +119,9 @@ CREATE TABLE `students` (
 --
 
 INSERT INTO `students` (`id`, `school_num`, `name`, `en_name`, `birthday`, `uni_id`, `addr`, `tel`, `email`, `dept`, `guardian`) VALUES
-(1, 9902123, '張育誠', 'joohnny', '1995/03/12', 'F129047308', '新北市永和區豫溪街128號二樓-1', '0929312288', 'johnny31258@gmail.com', '大眾傳播', '張國榮'),
-(17, 11250101, '艾蓮葉卡', 'allen', '1995/03/30', 'A123456789', '台北市希干希納區中興街835號', '0987654321', 'theallenman01@gmail.com', '綜合教育', '古利夏');
+(1, 9902123, '張育誠', 'joohnny', '1995/03/12', 'F129047308', '新北市永和區', '0929312288', 'johnny31258@gmail.com', '化工材料', '張國榮'),
+(17, 11250101, '艾蓮葉卡', 'allen', '1995/03/30', 'A123456789', '台北市希干希納區', '0987654321', 'theallenman@gmail.com', '綜合教育', '古利夏'),
+(18, 11250102, '李子柒', 'liziqi', '1995/07/06', 'B199007067', '四川市綿陽區', '0919900706', 'theliziqiwoman@gmail.com', '綜合教育', '李佳佳');
 
 --
 -- 觸發器 `students`
@@ -177,13 +180,13 @@ ALTER TABLE `students`
 -- 使用資料表自動遞增(AUTO_INCREMENT) `permissions`
 --
 ALTER TABLE `permissions`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `students`
 --
 ALTER TABLE `students`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
