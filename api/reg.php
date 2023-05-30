@@ -43,9 +43,11 @@ if ($repeat) {
         '{$_POST['email']}',
         '{$_POST['dept']}',
         '{$_POST['guardian']}')";
-
+    $sql_scores = "INSERT into `scores` (`school_num`)
+    values('{$_POST['school_num']}')";
     $pdo->exec($sql);
     $pdo->exec($sql2);
+    $pdo->exec($sql_scores);
     header("location:../index.php?do=login");
 } else {
     header("location:../index.php?do=reg&error=1");
