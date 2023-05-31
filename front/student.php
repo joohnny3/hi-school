@@ -67,6 +67,36 @@
         a {
             color: red;
         }
+
+        #sidebar {
+            position: fixed;
+            /* 讓側邊欄固定在視窗邊緣 */
+            left: 0;
+            /* 讓側邊欄貼近視窗的左側 */
+            top: 0;
+            /* 讓側邊欄從視窗的頂部開始 */
+            width: 200px;
+            /* 設定側邊欄的寬度 */
+            height: 100vh;
+            /* 讓側邊欄佔據整個視窗的高度 */
+            overflow-y: auto;
+            /* 讓側邊欄的內容可以在需要時滾動 */
+            background-color: #f1f1f1;
+            /* 設定側邊欄的背景色 */
+            transition: all 0.5s;
+            /* 讓側邊欄的變化有過渡效果 */
+        }
+
+        #sidebar-button-wrapper {
+            position: fixed;
+            /* 讓按鈕固定在視窗邊緣 */
+            left: 200px;
+            /* 讓按鈕位於側邊欄的右側 */
+            top: 0;
+            /* 讓按鈕貼近視窗的頂部 */
+            transition: all 0.5s;
+            /* 讓按鈕的變化有過渡效果 */
+        }
     </style>
 </head>
 
@@ -76,6 +106,12 @@
     $rows = $pdo->query($sql)->fetchAll(PDO::FETCH_ASSOC);
     foreach ($rows as $idx => $row) {
     ?>
+        <div id="sidebar">
+            <ul>
+                <li><a href="index.php?do=edit_student">編輯學生資訊</a></li>
+                <!-- 您可以在這裡添加更多的功能選項 -->
+            </ul>
+        </div>
         <div class="container">
             <div class="header">
                 <div class="box1">
@@ -111,8 +147,25 @@
             </div>
         </div>
         <div><a href="index.php?do=edit_student">編輯</a></div>
+        <div id="sidebar-button-wrapper">
+            <button id="sidebar-button" onclick="toggleSidebar()">功能表</button>
+        </div>
     <?php
     } ?>
+    <script>
+        function toggleSidebar() {
+            var sidebar = document.getElementById('sidebar');
+            var buttonWrapper = document.getElementById('sidebar-button-wrapper');
+            if (sidebar.style.left === '0px') {
+                sidebar.style.left = '-200px'; // 隱藏側邊欄
+                buttonWrapper.style.left = '0px'; // 移動按鈕到最左邊
+            } else {
+                sidebar.style.left = '0px'; // 顯示側邊欄
+                buttonWrapper.style.left = '200px'; // 移動按鈕到側邊欄右側
+            }
+        }
+    </script>
+
 </body>
 
 </html>
