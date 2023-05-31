@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>學生基本資料</title>
+    <title>修改個人資料</title>
     <style>
         * {
             box-sizing: border-box;
@@ -69,50 +68,51 @@
         }
     </style>
 </head>
-
 <body>
-    <?php
+<?php
     $sql = "SELECT * from `students` where `school_num` = {$_SESSION['school_num']}";
     $rows = $pdo->query($sql)->fetchAll(PDO::FETCH_ASSOC);
     foreach ($rows as $idx => $row) {
     ?>
-        <div class="container">
-            <div class="header">
-                <div class="box1">
-                    <div>學號</div>
-                    <div>科系</div>
-                    <div>出生日期</div>
-                    <div>身分證字號</div>
-                    <div>電話</div>
-                    <div>電子郵件</div>
-                    <div>監護人</div>
-                </div>
-                <div class="box2">
-                    <div><?= $row['school_num']; ?></div>
-                    <div><?= $row['dept']; ?></div>
-                    <div><?= $row['birthday']; ?></div>
-                    <div><?= $row['uni_id']; ?></div>
-                    <div><?= $row['tel']; ?></div>
-                    <div><?= $row['email']; ?></div>
-                    <div><?= $row['guardian']; ?></div>
-                </div>
-                <div class="photo">
-                    <div>photo</div>
-                    <div><?= $row['en_name']; ?></div>
-                </div>
+        <form action="./api/edit_student.php" method="post">
+    <div class="container">
+        <div class="header">
+            <div class="box1">
+                <div>學號</div>
+                <div>科系</div>
+                <div>出生日期</div>
+                <div>身分證字號</div>
+                <div>電話</div>
+                <div>電子郵件</div>
+                <div>監護人</div>
             </div>
-            <div class="nav">
-                <div>地址</div>
-                <div><?= $row['addr']; ?></div>
+            <div class="box2">
+                <div><input type="text" name="school_num" value="<?= $row['school_num']; ?>" readonly></div>
+                <div><input type="text" name="dept" value="<?= $row['dept']; ?>" readonly></div>
+                <div><input type="text" name="birthday" value="<?= $row['birthday']; ?>"></div>
+                <div><input type="text" name="uni_id" value="<?= $row['uni_id']; ?>"></div>
+                <div><input type="text" name="tel" value="<?= $row['tel']; ?>"></div>
+                <div><input type="text" name="email" value="<?= $row['email']; ?>"></div>
+                <div><input type="text" name="guardian" value="<?= $row['guardian']; ?>"></div>
             </div>
-            <div class="footer">
-                <div>簡介</div>
-                <div>今年</div>
+            <div class="photo">
+                <div>photo</div>
+                <div><input type="text" name="en_name" value="<?= $row['en_name']; ?>"></div>
             </div>
         </div>
-        <div><a href="index.php?do=edit_student">編輯</a></div>
+        <div class="nav">
+            <div>地址</div>
+            <div><input type="text" name="addr" value="<?= $row['addr']; ?>"></div>
+        </div>
+        <div class="footer">
+            <div>簡介</div>
+        </div>
+        <div><input type="text" name="readme" value="readme"></div>
+    </div>
+    <button type="submit">送出</button>
+</form>
+
     <?php
     } ?>
 </body>
-
 </html>
