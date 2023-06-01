@@ -109,7 +109,15 @@
         <div id="sidebar">
             <ul>
                 <li><a href="index.php?do=edit_student">編輯學生資訊</a></li>
-                <!-- 您可以在這裡添加更多的功能選項 -->
+                <!-- 可以在這裡添加更多的功能選項 -->
+                <li><a href="index.php?do=photo_upload">新增照片</a></li>
+                <?php
+                if (isset($_SESSION['login'])) {
+                } {
+                ?>
+                    <li><a href="./api/logout.php">登出</a></li>
+                <?php
+                } ?>
             </ul>
         </div>
         <div class="container">
@@ -133,7 +141,7 @@
                     <div><?= $row['guardian']; ?></div>
                 </div>
                 <div class="photo">
-                    <div>photo</div>
+                    <div><img src="" alt=""> photo</div>
                     <div><?= $row['en_name']; ?></div>
                 </div>
             </div>
