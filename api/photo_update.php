@@ -8,13 +8,13 @@ if($_FILES['img']['error']==0){
     //$tmp=explode('.',$_FILES['img']['name']);
     //$sub="." . array_pop($tmp);
     
-    move_uploaded_file($_FILES['img']['tmp_name'],"../img/".$name);
+    move_uploaded_file($_FILES['img']['tmp_name'],"../image/".$name);
 
     $sql="UPDATE `images` set
     `img`='$name',`story`='{$_POST['story']}',`type`='{$_FILES['img']['type']}' where `school_num`='{$_SESSION['school_num']}'";
 
-    $old_image=$pdo->query("select `img` from `images` where `school_num`='{$_SESSION['school_num']}'")->fetchColumn();
-    unlink("../img/".$old_image);
+    $old_image=$pdo->query("SELECT `img` from `images` where `school_num`='{$_SESSION['school_num']}'")->fetchColumn();
+    unlink("../image/".$old_image);
     $pdo->exec($sql);
     
     // header("location:../upload.php");

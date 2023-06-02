@@ -102,7 +102,24 @@
 
 <body>
     <?php
-    $sql = "SELECT * from `students` where `school_num` = {$_SESSION['school_num']}";
+
+// print "<pre>";
+// print_r($_POST);
+// print "</pre>";
+if (isset($_SESSION['school_num'])) {
+    $sql = "SELECT * FROM `images` INNER JOIN `students` 
+    ON `images`.`school_num` = `students`.`school_num` 
+    WHERE `students`.`school_num` = {$_SESSION['school_num']}";
+} elseif (isset($_POST['school_num'])) {
+    $sql = "SELECT * FROM `images` INNER JOIN `students` 
+    ON `images`.`school_num` = `students`.`school_num` 
+    WHERE `students`.`school_num` = {$_POST['school_num']}";
+} 
+
+    // $sql = "SELECT * FROM `images` INNER JOIN `students` 
+    // ON `images`.`school_num` = `students`.`school_num` 
+    // WHERE `students`.`school_num` = {$_SESSION['school_num']}";
+    // $sql = "SELECT * from `students` where `school_num` = {$_SESSION['school_num']}";
     $rows = $pdo->query($sql)->fetchAll(PDO::FETCH_ASSOC);
     foreach ($rows as $idx => $row) {
     ?>
@@ -110,14 +127,19 @@
             <ul>
                 <li><a href="index.php?do=edit_student">編輯學生資訊</a></li>
                 <!-- 可以在這裡添加更多的功能選項 -->
-                <li><a href="index.php?do=photo_upload">新增照片</a></li>
+                <?php
+                if (empty($row['img'])) { ?>
+                    <li><a href="index.php?do=photo_upload">新增照片</a></li>
+                <?php
+                }
+                ?>
                 <?php
                 if (isset($_SESSION['login'])) {
-                } {
                 ?>
                     <li><a href="./api/logout.php">登出</a></li>
                 <?php
-                } ?>
+                } 
+                ?>
             </ul>
         </div>
         <div class="container">
@@ -141,7 +163,7 @@
                     <div><?= $row['guardian']; ?></div>
                 </div>
                 <div class="photo">
-                    <div><img src="" alt=""> photo</div>
+                    <div><img src="./image/11250102.png" alt="" width="144px"></div>
                     <div><?= $row['en_name']; ?></div>
                 </div>
             </div>
@@ -154,7 +176,7 @@
                 <div>今年</div>
             </div>
         </div>
-        <div><a href="index.php?do=edit_student">編輯</a></div>
+        <!-- <div><a href="index.php?do=edit_student">編輯</a></div> -->
         <div id="sidebar-button-wrapper">
             <button id="sidebar-button" onclick="toggleSidebar()">功能表</button>
         </div>
