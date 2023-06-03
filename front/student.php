@@ -50,9 +50,6 @@
             height: 5%;
         }
 
-        .footer {
-            height: 55%;
-        }
 
         .photo {
             width: 40%;
@@ -71,7 +68,7 @@
         #sidebar {
             position: fixed;
             /* 讓側邊欄固定在視窗邊緣 */
-            left: 0;
+            left: -200px;
             /* 讓側邊欄貼近視窗的左側 */
             top: 0;
             /* 讓側邊欄從視窗的頂部開始 */
@@ -90,7 +87,7 @@
         #sidebar-button-wrapper {
             position: fixed;
             /* 讓按鈕固定在視窗邊緣 */
-            left: 200px;
+            left: 0;
             /* 讓按鈕位於側邊欄的右側 */
             top: 0;
             /* 讓按鈕貼近視窗的頂部 */
@@ -102,46 +99,47 @@
 
 <body>
     <?php
-
-// print "<pre>";
-// print_r($_POST);
-// print "</pre>";
-if (isset($_SESSION['school_num'])) {
-    $sql = "SELECT * FROM `images` INNER JOIN `students` 
+    if (isset($_SESSION['school_num'])) {
+        $sql = "SELECT * FROM `images` INNER JOIN `students` 
     ON `images`.`school_num` = `students`.`school_num` 
     WHERE `students`.`school_num` = {$_SESSION['school_num']}";
-} elseif (isset($_POST['school_num'])) {
-    $sql = "SELECT * FROM `images` INNER JOIN `students` 
+        $sql_scores = "SELECT scores FROM `scores`,`students` WHERE `scores`.`school_num`=`students`.`school_num` AND `scores`.`school_num` = {$_SESSION['school_num']}";
+    } elseif (isset($_POST['school_num'])) {
+        // print_r($_POST);
+        $sql = "SELECT * FROM `images` INNER JOIN `students` 
     ON `images`.`school_num` = `students`.`school_num` 
     WHERE `students`.`school_num` = {$_POST['school_num']}";
-} 
+        $sql_scores = "SELECT scores FROM `scores`,`students` WHERE `scores`.`school_num`=`students`.`school_num` AND `scores`.`school_num` = {$_POST['school_num']}";
+    }
 
-    // $sql = "SELECT * FROM `images` INNER JOIN `students` 
-    // ON `images`.`school_num` = `students`.`school_num` 
-    // WHERE `students`.`school_num` = {$_SESSION['school_num']}";
-    // $sql = "SELECT * from `students` where `school_num` = {$_SESSION['school_num']}";
+    $scores = $pdo->query($sql_scores)->fetchAll(PDO::FETCH_ASSOC);
     $rows = $pdo->query($sql)->fetchAll(PDO::FETCH_ASSOC);
     foreach ($rows as $idx => $row) {
+        if ($showSidebar) {
     ?>
-        <div id="sidebar">
-            <ul>
-                <li><a href="index.php?do=edit_student">編輯學生資訊</a></li>
-                <!-- 可以在這裡添加更多的功能選項 -->
-                <?php
-                if (empty($row['img'])) { ?>
-                    <li><a href="index.php?do=photo_upload">新增照片</a></li>
-                <?php
-                }
-                ?>
-                <?php
-                if (isset($_SESSION['login'])) {
-                ?>
-                    <li><a href="./api/logout.php">登出</a></li>
-                <?php
-                } 
-                ?>
-            </ul>
-        </div>
+            <div id="sidebar">
+                <ul>
+                    <li><a href="index.php?do=edit_student">編輯學生資訊</a></li>
+                    <!-- 可以在這裡添加更多的功能選項 -->
+                    <?php
+                    if (empty($row['img'])) { ?>
+                        <li><a href="index.php?do=photo_upload">新增照片</a></li>
+                    <?php
+                    }
+                    ?>
+
+                    <?php
+                    if (isset($_SESSION['login'])) {
+                    ?>
+                        <li><a href="./api/logout.php">登出</a></li>
+                    <?php
+                    }
+                    ?>
+                </ul>
+            </div>
+        <?php
+        }
+        ?>
         <div class="container">
             <div class="header">
                 <div class="box1">
@@ -152,18 +150,26 @@ if (isset($_SESSION['school_num'])) {
                     <div>電話</div>
                     <div>電子郵件</div>
                     <div>監護人</div>
+                    <div>成績</div>
                 </div>
-                <div class="box2">
-                    <div><?= $row['school_num']; ?></div>
-                    <div><?= $row['dept']; ?></div>
-                    <div><?= $row['birthday']; ?></div>
-                    <div><?= $row['uni_id']; ?></div>
-                    <div><?= $row['tel']; ?></div>
-                    <div><?= $row['email']; ?></div>
-                    <div><?= $row['guardian']; ?></div>
-                </div>
+                <?php foreach ($scores as  $value) { ?>
+                    <div class="box2">
+                        <div><?= $row['school_num']; ?></div>
+                        <div><?= $row['dept']; ?></div>
+                        <div><?= $row['birthday']; ?></div>
+                        <div><?= $row['uni_id']; ?></div>
+                        <div><?= $row['tel']; ?></div>
+                        <div><?= $row['email']; ?></div>
+                        <div><?= $row['guardian']; ?></div>
+                        <div><?= $value['scores']; ?></div>
+                    </div>
+                <?php } ?>
                 <div class="photo">
-                    <div><img src="./image/11250102.png" alt="" width="144px"></div>
+                    <div>
+                        <a href="index.php?do=photo_upload">
+                            <img src="./image/<?= $row['img']; ?>" alt="" width="144px">
+                        </a>
+                    </div>
                     <div><?= $row['en_name']; ?></div>
                 </div>
             </div>
@@ -171,16 +177,18 @@ if (isset($_SESSION['school_num'])) {
                 <div>地址</div>
                 <div><?= $row['addr']; ?></div>
             </div>
-            <div class="footer">
-                <div>簡介</div>
-                <div>今年</div>
+            <div>簡介</div>
+            <div><?= $row['intro']; ?></div>
+        </div>
+        <?php
+        if ($showSidebar) {
+        ?>
+            <!-- <div><a href="index.php?do=edit_student">編輯</a></div> -->
+            <div id="sidebar-button-wrapper">
+                <button id="sidebar-button" onclick="toggleSidebar()">功能表</button>
             </div>
-        </div>
-        <!-- <div><a href="index.php?do=edit_student">編輯</a></div> -->
-        <div id="sidebar-button-wrapper">
-            <button id="sidebar-button" onclick="toggleSidebar()">功能表</button>
-        </div>
     <?php
+        }
     } ?>
     <script>
         function toggleSidebar() {

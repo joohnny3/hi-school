@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -27,13 +28,24 @@
     </div>
     <div id="formContainer" style="display: none;">
         <form action="./api/reg.php" method="post">
+            <div class="studentForm">
+                <label for="dept">科系</label>
+                <select name="dept" id="dept">
+                    <option value="">請選擇科系</option>
+                    <option value="資訊工程">資訊工程系</option>
+                    <option value="商業管理">商業管理系</option>
+                    <option value="化工材料">化工材料系</option>
+                    <option value="觀光事業">觀光事業系</option>
+                    <option value="大眾傳播">大眾傳播系</option>
+                </select>
+            </div>
             <div>
                 <label for="user">帳號</label>
                 <input type="text" name="user" id="user">
             </div>
             <div>
                 <label for="password">密碼</label>
-                <input type="password" name="password" id="password">
+                <input type="text" name="password" id="password">
             </div>
             <div class="studentForm">
                 <label for="school_num">學號</label>
@@ -68,10 +80,6 @@
                 <input type="text" name="email" id="email">
             </div>
             <div class="studentForm">
-                <label for="dept">科系</label>
-                <input type="text" name="dept" id="dept">
-            </div>
-            <div class="studentForm">
                 <label for="guardian">監護人</label>
                 <input type="text" name="guardian" id="guardian">
             </div>
@@ -85,30 +93,30 @@
     </div>
 
     <script>
-        window.onload = () => {
-            updateForm('');
-        }
+    window.onload = () => {
+        updateForm('');
+    }
 
-        function updateForm(role) {
-            const formContainer = document.querySelector('#formContainer');
-            const studentForm = document.querySelectorAll('.studentForm');
-            let roleForm = document.querySelector('#role')
-            if (role == 'student') {
-                formContainer.style.display = 'block';
-                roleForm.value = 'student';
-                for (var i = 0; i < studentForm.length; i++) {
-                    studentForm[i].style.display = 'block';
-                }
-            } else if (role == 'teacher') {
-                formContainer.style.display = 'block';
-                roleForm.value = 'teacher';
-                for (var i = 0; i < studentForm.length; i++) {
-                    studentForm[i].style.display = 'none';
-                }
-            } else {
-                formContainer.style.display = 'none';
+    function updateForm(role) {
+        const formContainer = document.querySelector('#formContainer');
+        const studentForm = document.querySelectorAll('.studentForm');
+        let roleForm = document.querySelector('#role')
+        if (role == 'student') {
+            formContainer.style.display = 'block';
+            roleForm.value = 'student';
+            for (var i = 0; i < studentForm.length; i++) {
+                studentForm[i].style.display = 'block';
             }
+        } else if (role == 'teacher') {
+            formContainer.style.display = 'block';
+            roleForm.value = 'teacher';
+            for (var i = 0; i < studentForm.length; i++) {
+                studentForm[i].style.display = 'none';
+            }
+        } else {
+            formContainer.style.display = 'none';
         }
+    }
     </script>
 
 
