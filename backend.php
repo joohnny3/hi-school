@@ -53,6 +53,8 @@ include "sidebar.php";
             <?php endfor; ?>
             <!-- <img src="path/to/image7.png" data-value="+"> -->
         </div>
+    </form>
+       
     <script type="text/javascript">
     const images = document.querySelectorAll('img');
     for (let i = 0; i < images.length; i++) {

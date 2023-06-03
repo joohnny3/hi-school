@@ -107,7 +107,7 @@
         <div class="footer">
             <div>簡介</div>
         </div>
-        <div><input type="text" name="readme" value="readme"></div>
+        <div><input type="text" name="intro" value="<?= $row['intro']; ?>"></div>
     </div>
     <button type="submit">送出</button>
 </form>

@@ -15,7 +15,8 @@ $sql = "update `students`
       `tel`='{$_POST['tel']}',
       `dept`='{$_POST['dept']}',
       `email`='{$_POST['email']}',
-      `guardian`='{$_POST['guardian']}'
+      `guardian`='{$_POST['guardian']}',
+      `intro`='{$_POST['intro']}'
        where `school_num`='{$_POST['school_num']}'";
 
 $pdo->exec($sql);   
