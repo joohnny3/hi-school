@@ -10,11 +10,11 @@
 
 <body>
     <?php
-    if(isset($_GET['error'])){
+    if (isset($_GET['error'])) {
         print "<span style='color:red'>";
         print "資料不可為空";
         print "</span>";
-    }elseif (isset($_GET['repeat'])) {
+    } elseif (isset($_GET['repeat'])) {
         print "<span style='color:red'>";
         print "帳號名稱已存在";
         print "</span>";
@@ -93,35 +93,31 @@
     </div>
 
     <script>
-    window.onload = () => {
-        updateForm('');
-    }
-
-    function updateForm(role) {
-        const formContainer = document.querySelector('#formContainer');
-        const studentForm = document.querySelectorAll('.studentForm');
-        let roleForm = document.querySelector('#role')
-        if (role == 'student') {
-            formContainer.style.display = 'block';
-            roleForm.value = 'student';
-            for (var i = 0; i < studentForm.length; i++) {
-                studentForm[i].style.display = 'block';
-            }
-        } else if (role == 'teacher') {
-            formContainer.style.display = 'block';
-            roleForm.value = 'teacher';
-            for (var i = 0; i < studentForm.length; i++) {
-                studentForm[i].style.display = 'none';
-            }
-        } else {
-            formContainer.style.display = 'none';
+        window.onload = () => {
+            updateForm('');
         }
-    }
+
+        function updateForm(role) {
+            const formContainer = document.querySelector('#formContainer');
+            const studentForm = document.querySelectorAll('.studentForm');
+            let roleForm = document.querySelector('#role')
+            if (role == 'student') {
+                formContainer.style.display = 'block';
+                roleForm.value = 'student';
+                for (var i = 0; i < studentForm.length; i++) {
+                    studentForm[i].style.display = 'block';
+                }
+            } else if (role == 'teacher') {
+                formContainer.style.display = 'block';
+                roleForm.value = 'teacher';
+                for (var i = 0; i < studentForm.length; i++) {
+                    studentForm[i].style.display = 'none';
+                }
+            } else {
+                formContainer.style.display = 'none';
+            }
+        }
     </script>
-
-
-
-
 </body>
 
 </html>

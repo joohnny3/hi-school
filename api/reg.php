@@ -1,21 +1,13 @@
 <?php require_once "../db.php";
 
-//可以選擇使用編碼來為密碼或資料加密
-/* $pw=md5($_POST['pw']);
-echo $pw; */
-$sql = "SELECT COUNT(*) FROM `permissions` WHERE `user` = '{$_POST['user']}'";
-$repeat = $pdo->query($sql)->fetchColumn();
-
-print_r($repeat);
+$repeat = _count('permissions', ['user' => $_POST['user']]);
 
 if ($repeat) {
     header("location:../index.php?do=reg&repeat=1");
-}elseif (
+} elseif (
     $_POST['role'] == "teacher" && !empty($_POST) &&
     count(array_filter($_POST, 'strlen')) == count($_POST)
-)
-//  確認post每個值有都有輸入(strlen至少大於0才會回傳)
-{
+) {
     $sql = "INSERT into `permissions` (`name`,`uni_id`,`user`,`password`,`role`)
      values('{$_POST['name']}',
            '{$_POST['uni_id']}',
@@ -46,7 +38,7 @@ if ($repeat) {
     $sql_scores = "INSERT into `scores` (`school_num`,`dept`)
     values('{$_POST['school_num']}',
     '{$_POST['dept']}')";
-    $sql_images ="INSERT into `images` (`school_num`)
+    $sql_images = "INSERT into `images` (`school_num`)
     values('{$_POST['school_num']}')";
     $pdo->exec($sql_pre);
     $pdo->exec($sql_students);

@@ -27,7 +27,6 @@
 
 <body>
     <h1 class="header">照片更換</h1>
-    <!----建立你的表單及設定編碼----->
     <form action="./api/photo_upload.php" method="post" enctype="multipart/form-data">
         <div>
             上傳檔案: <input type="file" name="img" id="img">
@@ -37,46 +36,20 @@
         </div>
 
     </form>
-
-
-
-
-    <!----建立一個連結來查看上傳後的圖檔---->
-
     <?php
-    // print "<pre>";
-    // print_r($_POST);
-    // print "</pre>";
-    // print "<pre>";
-    // print_r($_SESSION);
-    // print "</pre>";
     $sql = "SELECT * from `images` where `school_num` = {$_SESSION['school_num']}";
-    $imgs = $pdo->query($sql)->fetchAll(PDO::FETCH_ASSOC);
-
+    $imgs = q($sql);
     ?>
     <table>
         <tr>
-
             <td>木前</td>
-
-
         </tr>
         <?php
         foreach ($imgs as $idx => $img) {
-            // print "<pre>";
-            // print_r($idx);
-            // print "</pre>";
-            // print "<pre>";
-            // print_r($img);
-            // print "</pre>";
-
         ?>
             <tr>
                 <td>
                     <?php
-                    // print"<pre>";
-                    // print_r($img);
-                    // print"</pre>";
                     switch ($img['type']) {
                         case 'image/jpeg':
                             echo "<img src='./image/{$img['img']}'";
@@ -99,21 +72,11 @@
                     }
                     ?>
                 </td>
-
-
-
-<!-- 
-                <td>
-                    <button onclick="location.href='./front/photo_update.php?id=<?= $img['img']; ?>'">編輯</button>
-                    <button onclick="location.href='./api/photo_delete.php?id=<?= $img['img']; ?>'">刪除</button>
-                </td> -->
             </tr>
         <?php
         }
         ?>
     </table>
-
-
 </body>
 
 </html>

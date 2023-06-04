@@ -1,10 +1,5 @@
 <?php
-include_once "../db.php";
-
-print "<pre>";
-print_r($_POST);
-print "</pre>";
-
+require_once "../db.php";
 
 $sql = "update `students` 
      set  
@@ -19,9 +14,6 @@ $sql = "update `students`
       `intro`='{$_POST['intro']}'
        where `school_num`='{$_POST['school_num']}'";
 
-$pdo->exec($sql);   
-    
-    
-    
+$pdo->exec($sql);
 
 header("location:../index.php?do=student");

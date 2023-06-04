@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -14,7 +15,7 @@
         echo "<span style='color:red'>";
         echo "帳號或密碼錯誤";
         echo "</span>";
-    } 
+    }
     ?>
     <form action="./api/login.php" method="post">
         <div>

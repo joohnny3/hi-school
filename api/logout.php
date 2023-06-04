@@ -2,4 +2,5 @@
 
 $_SESSION = [];
 header("location:../index.php");
+
 ?>

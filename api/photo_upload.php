@@ -1,8 +1,6 @@
 <?php 
 require_once "../db.php";
-// echo "<pre>";
-// print_r($_SESSION);
-// echo "</pre>";
+
 
 if ($_FILES['img']['error'] == 0) {
 
@@ -16,19 +14,7 @@ if ($_FILES['img']['error'] == 0) {
 // 例如，如果你上傳了一個名為 "example.jpg" 的檔案，$_FILES['img']['name'] 的值將會是 "example.jpg"，而 $extension 的值將會是 "jpg"。
 
     $name = $_SESSION['school_num'].'.'.$photoName;
-    // $name = $_FILES['img']['name'];
-
    
-    // print "<pre>";
-    // print_r($_FILES);
-    // print "</pre>";
-    // print "<pre>";
-    // print_r($_SESSION);
-    // print "</pre>";
-    // print "<pre>";
-    // print_r($_POST);
-    // print "</pre>";
-
     move_uploaded_file($_FILES['img']['tmp_name'], "../image/" . $name);
 
     $sql = "UPDATE `images` set

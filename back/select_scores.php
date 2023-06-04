@@ -1,18 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-
 <body>
-    <form action="./api/add_scores.php" method="post">
+<body>
+    <form action="./api/select_scores.php" method="post">
         <div>
             <label for="scores"></label>
-            <input type="text" name="scores" id="scores" value="請輸入" onfocus="this.value=''">
+            <select name="scores" id="scores">
+                <option value="max">最高分</option>
+                <option value="min">最低分</option>
+                <option value="pass">及格</option>
+                <option value="flunk">低於60分</option>
+            </select>
         </div>
         <div>
             <input type="hidden" name="school_num" id="school_num" value="<?= $_POST['school_num'] ?>">
@@ -20,5 +24,5 @@
         </div>
     </form>
 </body>
-
+</body>
 </html>
