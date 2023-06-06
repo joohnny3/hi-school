@@ -9,54 +9,29 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link rel="stylesheet" href="./css/index.css">
+    <link rel="icon" href="./photo/hello.png" type="image/png">
     <title>hi_School</title>
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-        }
-
-        a {
-            font-family: 'Roboto', sans-serif;
-            font-size: 44px;
-        }
-
-        h1 {
-            font-family: 'Dancing Script', cursive;
-            font-size: 108px;
-            text-align: center;
-        }
-
-        .menu {
-            display: flex;
-            justify-content: space-around;
-            background: #f1f1f1;
-            padding: 20px 0;
-        }
-
-        .menu-item {
-            cursor: pointer;
-        }
-    </style>
 </head>
 
 <body>
-    <h1>hi_School</h1>
     <header>
         <?php
         if (!isset($_SESSION['login'])) {
         ?>
-        <div class="menu">
+            <div class="menu">
 
-            <div class="menu-item" id="login">
-                <a href="index.php?do=login">Log in</a>
+                <div class="login">
+                    <a href="index.php?do=login">Log in</a>
+                </div>
+                <div class="register">
+                    <a href="index.php?do=reg">Sing up</a>
+                </div>
             </div>
-            <div class="menu-item" id="register">
-                <a href="index.php?do=reg">Sing up</a>
-            </div>
-        </div>
         <?php } ?>
     </header>
+    <h1 class="animate__animated animate__jello">hi_School</h1>
     <main>
         <div id="content">
             <?php

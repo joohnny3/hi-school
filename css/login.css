@@ -1,0 +1,23 @@
+.login {
+  position: fixed;
+  top: 32%;
+  left: 47%;
+}
+
+.register {
+  position: absolute;
+  top: 92%;
+  right: 2%;
+  font-size: 24px;
+}
+h1 {
+  display: none;
+}
+
+.login:hover > a {
+    text-shadow: none;
+}
+
+.register > a{
+    color: white;
+}

@@ -81,6 +81,9 @@
             top: 0;
             transition: all 0.5s;
         }
+        h1 {
+            display: none;
+        }
     </style>
 </head>
 

@@ -1,0 +1,48 @@
+body {
+    background-image: url(../photo/index.jpg);
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: auto;
+    background-repeat: no-repeat;
+  }
+  
+  h1 {
+    font-family: "Dancing Script", cursive;
+    font-size: 108px;
+    color: #eee;
+    text-shadow: 1px 1px 5px black;
+    margin-top: auto;
+    margin-bottom: auto;
+    padding-bottom: 100px;
+    
+}
+
+.menu {
+    position: absolute;
+    top: 4%;
+    left: 84%;
+    display: flex;
+    justify-content: space-between;
+    width: 180px;
+    font-size: 24px;
+
+  }
+  
+
+.login:hover , .register:hover {
+    text-emphasis-position: under;
+    text-emphasis: ">";
+}
+
+.login > a, .register > a {
+    color: black;
+    text-shadow: 1px 1px 4px #eee;
+    font-family: "Roboto", sans-serif;
+    text-decoration: none;
+  }
+  
