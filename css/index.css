@@ -10,16 +10,15 @@ body {
     margin: auto;
     background-repeat: no-repeat;
   }
-  
-  h1 {
+
+  .title{
     font-family: "Dancing Script", cursive;
     font-size: 108px;
     color: #eee;
     text-shadow: 1px 1px 5px black;
     margin-top: auto;
     margin-bottom: auto;
-    padding-bottom: 100px;
-    
+    padding-bottom: 100px;    
 }
 
 .menu {
@@ -33,13 +32,28 @@ body {
 
   }
   
+.singOut{
+  position: absolute;
+    top: 4%;
+    left: 90%;
+    display: flex;
+    justify-content: space-between;
+    width: 180px;
+    font-size: 24px;
+}
+.singOut:hover > a{
+  text-emphasis-position: under;
+  text-emphasis: "<";
+  color: black;
+  }
 
-.login:hover , .register:hover {
+.login:hover >a , .register:hover >a {
     text-emphasis-position: under;
     text-emphasis: ">";
+    color: black;
 }
 
-.login > a, .register > a {
+.login > a, .register > a , .singOut > a {
     color: black;
     text-shadow: 1px 1px 4px #eee;
     font-family: "Roboto", sans-serif;

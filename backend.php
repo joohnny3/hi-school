@@ -73,9 +73,7 @@ include_once "sidebar.php";
         include $file;
     } elseif (file_exists($fileBack)) {
         include $fileBack;
-    } else {
-        include "";
-    }
+    } 
     ?>
 </body>
 

@@ -12,6 +12,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <link rel="stylesheet" href="./css/index.css">
     <link rel="icon" href="./photo/hello.png" type="image/png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
     <title>hi_School</title>
 </head>
 
@@ -29,9 +31,17 @@
                     <a href="index.php?do=reg">Sing up</a>
                 </div>
             </div>
+            <?php } else { ?>
+                <div class="singOut">
+                    <a href="./api/logout.php">Sing out</a>
+                </div>
         <?php } ?>
     </header>
-    <h1 class="animate__animated animate__jello">hi_School</h1>
+    <h1 class="animate__animated animate__jello">
+        <div class="title">
+            hi_School
+        </div>
+    </h1>
     <main>
         <div id="content">
             <?php
