@@ -31,31 +31,32 @@
                     <a href="index.php?do=reg">Sing up</a>
                 </div>
             </div>
-            <?php } else { ?>
-                <div class="singOut">
-                    <a href="./api/logout.php">Sing out</a>
-                </div>
+        <?php } else { ?>
+            <div class="singOut">
+                <a href="./api/logout.php">Sing out</a>
+            </div>
         <?php } ?>
     </header>
-    <h1 class="animate__animated animate__jello">
-        <div class="title">
-            hi_School
-        </div>
-    </h1>
     <main>
-        <div id="content">
-            <?php
-            $showSidebar = true;
-            $do = $_GET['do'] ?? '';
-            $file = "./front/" . $do . ".php";
+        <div class="title">
 
-            if (file_exists($file)) {
-                include $file;
-            }
-            ?>
+            <h1 class="animate__animated animate__jello">hi_School</h1>
         </div>
-    </main>
-    <footer></footer>
+        </header>
+        <main>
+            <div id="content">
+                <?php
+                $showSidebar = true;
+                $do = $_GET['do'] ?? '';
+                $file = "./front/" . $do . ".php";
+
+                if (file_exists($file)) {
+                    include $file;
+                }
+                ?>
+            </div>
+        </main>
+        <footer></footer>
 </body>
 
 </html>

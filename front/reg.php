@@ -5,7 +5,68 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>singup</title>
+    <style>
+        .register {
+            display: none;
+        }
+
+        .menu>.login {
+            position: absolute;
+            top: 20%;
+            right: 1%;
+            font-size: 24px;
+        }
+
+        .title>h1 {
+            display: none;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background-image: url("your-image.jpg");
+            /* 替换为你想要使用的背景图像的URL */
+            background-size: cover;
+            background-position: center;
+            backdrop-filter: blur(8px);
+        }
+
+        body::backdrop {
+            backdrop-filter: none;
+        }
+
+        .row>div {
+            display: flex;
+            justify-content: center;
+            border: none !important;
+        }
+
+        #studentCard,
+        #teacherCard {
+            background: none;
+            border: none;
+        }
+
+        .card-body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #regBox {
+            width: 50vw;
+            background-color: wheat;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
 </head>
 
 <body>
@@ -20,76 +81,99 @@
         print "</span>";
     }
     ?>
-    <div>
-        <input type="button" id="student" value="student" onclick="updateForm(this.value);">
-        <label for="student">學生</label><br>
-        <input type="button" id="teacher" value="teacher" onclick="updateForm(this.value);">
-        <label for="teacher">老師</label><br>
+    <div class="row mt-3" id="title">
+        <div class="col-6 border border-black">
+            <div id="studentCard" class="card" style="width: 12rem; margin: 20px 5px 24px 5px">
+                <img class="card-img-top" src="./photo/graduated.png" alt="image" style="width: 100%" />
+                <div class="card-body">
+                    <div class="btn-group" role="group" aria-label="Basic example">
+                        <button type="button" class="btn btn-primary disabled">學生</button>
+                        <input class="btn btn-primary" type="button" id="student" value="student" onclick="updateForm(this.value);">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-6 border border-black">
+            <div id="teacherCard" class="card" style="width: 12rem; margin: 20px 5px 24px 5px">
+                <img class="card-img-top" src="./photo/professor.png" alt="image" style="width: 100%" />
+                <div class="card-body">
+                    <div class="btn-group" role="group" aria-label="Basic example">
+                        <button type="button" class="btn btn-warning disabled">老師</button>
+
+                        <input class="btn btn-warning" type="button" id="teacher" value="teacher" onclick="updateForm(this.value);">
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-    <div id="formContainer" style="display: none;">
-        <form action="./api/reg.php" method="post">
-            <div class="studentForm">
-                <label for="dept">科系</label>
-                <select name="dept" id="dept">
-                    <option value="">請選擇科系</option>
-                    <option value="資訊工程">資訊工程系</option>
-                    <option value="商業管理">商業管理系</option>
-                    <option value="化工材料">化工材料系</option>
-                    <option value="觀光事業">觀光事業系</option>
-                    <option value="大眾傳播">大眾傳播系</option>
-                </select>
-            </div>
-            <div>
-                <label for="user">帳號</label>
-                <input type="text" name="user" id="user">
-            </div>
-            <div>
-                <label for="password">密碼</label>
-                <input type="text" name="password" id="password">
-            </div>
-            <div class="studentForm">
-                <label for="school_num">學號</label>
-                <input type="text" name="school_num" id="school_num">
-            </div>
-            <div>
-                <label for="name">姓名</label>
-                <input type="text" name="name" id="name">
-            </div>
-            <div class="studentForm">
-                <label for="en_name">英文名字</label>
-                <input type="text" name="en_name" id="en_name">
-            </div>
-            <div class="studentForm">
-                <label for="birthday">出身年月日</label>
-                <input type="text" name="birthday" id="birthday">
-            </div>
-            <div>
-                <label for="uni_id">身分證號碼</label>
-                <input type="text" name="uni_id" id="uni_id">
-            </div>
-            <div class="studentForm">
-                <label for="addr">地址</label>
-                <input type="text" name="addr" id="addr">
-            </div>
-            <div class="studentForm">
-                <label for="tel">電話</label>
-                <input type="text" name="tel" id="tel">
-            </div>
-            <div class="studentForm">
-                <label for="email">電子郵件</label>
-                <input type="text" name="email" id="email">
-            </div>
-            <div class="studentForm">
-                <label for="guardian">監護人</label>
-                <input type="text" name="guardian" id="guardian">
-            </div>
-            <div>
-                <input type="hidden" name="role" id="role" value="">
-            </div>
-            <div>
-                <input type="submit" value="註冊">
-            </div>
-        </form>
+    <hr>
+
+    <div id="regBox">
+        <div id="formContainer" style="display: none;">
+            <form action="./api/reg.php" method="post">
+                <div class="studentForm">
+                    <label for="dept" class="form-label">科系</label>
+                    <select name="dept" id="dept">
+                        <option value=""></option>
+                        <option value="資訊工程">資訊工程系</option>
+                        <option value="商業管理">商業管理系</option>
+                        <option value="化工材料">化工材料系</option>
+                        <option value="觀光事業">觀光事業系</option>
+                        <option value="大眾傳播">大眾傳播系</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="user">帳號</label>
+                    <input type="text" name="user" id="user">
+                </div>
+                <div>
+                    <label for="password">密碼</label>
+                    <input type="text" name="password" id="password">
+                </div>
+                <div class="studentForm">
+                    <label for="school_num">學號</label>
+                    <input type="text" name="school_num" id="school_num">
+                </div>
+                <div>
+                    <label for="name">姓名</label>
+                    <input type="text" name="name" id="name">
+                </div>
+                <div class="studentForm">
+                    <label for="en_name">英文名字</label>
+                    <input type="text" name="en_name" id="en_name">
+                </div>
+                <div class="studentForm">
+                    <label for="birthday">出身年月日</label>
+                    <input type="text" name="birthday" id="birthday">
+                </div>
+                <div>
+                    <label for="uni_id">身分證號碼</label>
+                    <input type="text" name="uni_id" id="uni_id">
+                </div>
+                <div class="studentForm">
+                    <label for="addr">地址</label>
+                    <input type="text" name="addr" id="addr">
+                </div>
+                <div class="studentForm">
+                    <label for="tel">電話</label>
+                    <input type="text" name="tel" id="tel">
+                </div>
+                <div class="studentForm">
+                    <label for="email">電子郵件</label>
+                    <input type="text" name="email" id="email">
+                </div>
+                <div class="studentForm">
+                    <label for="guardian">監護人</label>
+                    <input type="text" name="guardian" id="guardian">
+                </div>
+                <div>
+                    <input type="hidden" name="role" id="role" value="">
+                </div>
+                <div>
+                    <input type="submit" value="註冊">
+                </div>
+            </form>
+        </div>
     </div>
 
     <script>
