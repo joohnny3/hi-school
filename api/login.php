@@ -29,9 +29,15 @@ if ($chk) {
         }
         header("location:../backend.php");
     } elseif ($value['role'] == "student") {
-        $sql_num = "SELECT `school_num` from `students` where `school_num`='{$_POST['user']}'";
+        $sql_num = "SELECT * from `students` where `school_num`='{$_POST['user']}'";
         $school_num = $pdo->query($sql_num)->fetch(PDO::FETCH_ASSOC);
         $_SESSION['school_num'] = $school_num['school_num'];
+        $_SESSION['name'] = $school_num['name'];
+        $_SESSION['en_name'] = $school_num['en_name'];
+        $_SESSION['birthday'] = $school_num['birthday'];
+        $_SESSION['uni_id'] = $school_num['uni_id'];
+        $_SESSION['dept'] = $school_num['dept'];
+        
         header("location:../index.php?do=student");
     } else {
         print "來者何人?";

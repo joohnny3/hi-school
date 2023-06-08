@@ -20,6 +20,7 @@
             align-items: center;
             height: 100vh;
             font-family: Arial, sans-serif;
+            background-image: none;
         }
 
         .container {
