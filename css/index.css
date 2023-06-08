@@ -40,16 +40,11 @@ body {
   width: 180px;
   font-size: 24px;
 }
-.singOut:hover > a {
-  text-emphasis-position: under;
-  text-emphasis: "<";
-  color: black;
-}
+
 
 .login:hover > a,
-.register:hover > a {
-  text-emphasis-position: under;
-  text-emphasis: ">";
+.register:hover > a,
+.singOut:hover > a{
   color: black;
 }
 
@@ -60,9 +55,32 @@ body {
   text-shadow: 1px 1px 4px #eee;
   font-family: "Roboto", sans-serif;
   text-decoration: none;
+  position: relative;
 }
 
-/* .login:hover , .register:hover{
-    transform: scale(1.1, 1.1);
-    transition: 0s, 1s;
-} */
+.login > a::after,
+.register > a::after, 
+.singOut > a::after
+{
+  content: "";
+  border-bottom: 1px dashed lightgrey;
+  position: absolute;
+  width: 70%;
+  right: 10px;
+  bottom: 2px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.login:hover > a::after,
+.register:hover > a::after,
+.singOut:hover > a::after {
+  opacity: 0.8;
+  animation: fadeinout 2s infinite;
+}
+
+
+@keyframes fadeinout {
+  0%,100% { opacity: 1; }
+  50% { opacity: 0; }
+}

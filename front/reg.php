@@ -6,67 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>singup</title>
-    <style>
-        .register {
-            display: none;
-        }
-
-        .menu>.login {
-            position: absolute;
-            top: 20%;
-            right: 1%;
-            font-size: 24px;
-        }
-
-        .title>h1 {
-            display: none;
-        }
-
-        body::before {
-            content: "";
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            background-image: url("your-image.jpg");
-            /* 替换为你想要使用的背景图像的URL */
-            background-size: cover;
-            background-position: center;
-            backdrop-filter: blur(8px);
-        }
-
-        body::backdrop {
-            backdrop-filter: none;
-        }
-
-        .row>div {
-            display: flex;
-            justify-content: center;
-            border: none !important;
-        }
-
-        #studentCard,
-        #teacherCard {
-            background: none;
-            border: none;
-        }
-
-        .card-body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        #regBox {
-            width: 50vw;
-            background-color: wheat;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-    </style>
+    <link rel="stylesheet" href="./css/reg.css">
 </head>
 
 <body>
@@ -83,7 +23,7 @@
     ?>
     <div class="row mt-3" id="title">
         <div class="col-6 border border-black">
-            <div id="studentCard" class="card" style="width: 12rem; margin: 20px 5px 24px 5px">
+            <div id="studentCard" class="card" style="width: 12rem; margin: 20px 5px 20px 5px">
                 <img class="card-img-top" src="./photo/graduated.png" alt="image" style="width: 100%" />
                 <div class="card-body">
                     <div class="btn-group" role="group" aria-label="Basic example">
@@ -94,7 +34,7 @@
             </div>
         </div>
         <div class="col-6 border border-black">
-            <div id="teacherCard" class="card" style="width: 12rem; margin: 20px 5px 24px 5px">
+            <div id="teacherCard" class="card" style="width: 12rem; margin: 20px 5px 20px 5px">
                 <img class="card-img-top" src="./photo/professor.png" alt="image" style="width: 100%" />
                 <div class="card-body">
                     <div class="btn-group" role="group" aria-label="Basic example">
@@ -107,70 +47,111 @@
         </div>
     </div>
     <hr>
-
     <div id="regBox">
         <div id="formContainer" style="display: none;">
             <form action="./api/reg.php" method="post">
                 <div class="studentForm">
-                    <label for="dept" class="form-label">科系</label>
-                    <select name="dept" id="dept">
-                        <option value=""></option>
-                        <option value="資訊工程">資訊工程系</option>
-                        <option value="商業管理">商業管理系</option>
-                        <option value="化工材料">化工材料系</option>
-                        <option value="觀光事業">觀光事業系</option>
-                        <option value="大眾傳播">大眾傳播系</option>
-                    </select>
+                    <div class="input-group mb-2">
+                        <label class="input-group-text" for="dept">科系</label>
+                        <select class="form-select" name="dept" id="dept">
+                            <option selected>請選擇....</option>
+                            <option value="資訊工程">資訊工程系</option>
+                            <option value="商業管理">商業管理系</option>
+                            <option value="化工材料">化工材料系</option>
+                            <option value="觀光事業">觀光事業系</option>
+                            <option value="大眾傳播">大眾傳播系</option>
+                        </select>
+                    </div>
                 </div>
                 <div>
-                    <label for="user">帳號</label>
-                    <input type="text" name="user" id="user">
-                </div>
-                <div>
-                    <label for="password">密碼</label>
-                    <input type="text" name="password" id="password">
-                </div>
-                <div class="studentForm">
-                    <label for="school_num">學號</label>
-                    <input type="text" name="school_num" id="school_num">
-                </div>
-                <div>
-                    <label for="name">姓名</label>
-                    <input type="text" name="name" id="name">
-                </div>
-                <div class="studentForm">
-                    <label for="en_name">英文名字</label>
-                    <input type="text" name="en_name" id="en_name">
-                </div>
-                <div class="studentForm">
-                    <label for="birthday">出身年月日</label>
-                    <input type="text" name="birthday" id="birthday">
-                </div>
-                <div>
-                    <label for="uni_id">身分證號碼</label>
-                    <input type="text" name="uni_id" id="uni_id">
-                </div>
-                <div class="studentForm">
-                    <label for="addr">地址</label>
-                    <input type="text" name="addr" id="addr">
-                </div>
-                <div class="studentForm">
-                    <label for="tel">電話</label>
-                    <input type="text" name="tel" id="tel">
+                    <div class="input-group mb-2">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="inputGroup-sizing-default">帳號</span>
+                        </div>
+                        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" name="user" id="user">
+                    </div>
+                    <div class="input-group mb-2">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="inputGroup-sizing-default">密碼</span>
+                        </div>
+                        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" name="password" id="password">
+                    </div>
+                    <div class="input-group mb-2">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="inputGroup-sizing-default">姓名</span>
+                        </div>
+                        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" name="name" id="name">
+                    </div>
+                    <div class="studentForm">
+                        <div class="input-group mb-2">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="inputGroup-sizing-default">學號</span>
+                            </div>
+                            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" name="school_num" id="school_num">
+                        </div>
+                    </div>
+                    <div class="input-group mb-2">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="inputGroup-sizing-default">身分證字號</span>
+                        </div>
+                        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" name="uni_id" id="uni_id">
+                    </div>
                 </div>
                 <div class="studentForm">
-                    <label for="email">電子郵件</label>
-                    <input type="text" name="email" id="email">
+                    <div class="input-group mb-2">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="inputGroup-sizing-default">英文名字</span>
+                        </div>
+                        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" name="en_name" id="en_name">
+                    </div>
                 </div>
                 <div class="studentForm">
-                    <label for="guardian">監護人</label>
-                    <input type="text" name="guardian" id="guardian">
+                    <div class="input-group mb-2">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="inputGroup-sizing-default">出身日期</span>
+                        </div>
+                        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" name="birthday" id="birthday">
+                    </div>
+                </div>
+                <div class="studentForm">
+                    <div class="input-group mb-2">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="inputGroup-sizing-default">居住地址</span>
+                        </div>
+                        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" name="addr" id="addr">
+                    </div>
+                </div>
+                <div class="studentForm">
+                    <div class="input-group mb-2">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="inputGroup-sizing-default">手機號碼</span>
+                        </div>
+                        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" name="tel" id="tel">
+                    </div>
+                </div>
+                <div class="studentForm">
+                    <div class="input-group mb-2">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="inputGroup-sizing-default">電子郵件</span>
+                        </div>
+                        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" name="email" id="email">
+                    </div>
+                </div>
+                <div class="studentForm">
+                    <div class="input-group mb-2">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="inputGroup-sizing-default">法定代理</span>
+                        </div>
+                        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" name="guardian" id="guardian">
+                    </div>
                 </div>
                 <div>
                     <input type="hidden" name="role" id="role" value="">
                 </div>
                 <div>
-                    <input type="submit" value="註冊">
+                    <button id="bReg" type="submit" value="註冊" class="btn btn-success">註冊<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-return-right" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M1.5 1.5A.5.5 0 0 0 1 2v4.8a2.5 2.5 0 0 0 2.5 2.5h9.793l-3.347 3.346a.5.5 0 0 0 .708.708l4.2-4.2a.5.5 0 0 0 0-.708l-4-4a.5.5 0 0 0-.708.708L13.293 8.3H3.5A1.5 1.5 0 0 1 2 6.8V2a.5.5 0 0 0-.5-.5z" />
+                        </svg></button>
                 </div>
             </form>
         </div>
