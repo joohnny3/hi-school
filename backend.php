@@ -10,6 +10,9 @@ include_once "sidebar.php";
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="icon" href="./photo/hello.png" type="image/png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
     <style>
         #sidebar {
             position: fixed;
@@ -28,16 +31,147 @@ include_once "sidebar.php";
             top: 0;
             transition: all 0.5s;
         }
+
+        @font-face {
+            font-family: "San Francisco";
+            font-weight: 400;
+            src: url("https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-regular-webfont.woff");
+        }
+
+        @font-face {
+            font-family: "San Francisco";
+            font-weight: 800;
+            src: url("https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-bold-webfont.woff");
+        }
+
+        .control-center {
+            -webkit-filter: invert(100%);
+            filter: invert(100%);
+            transform: scale(0.5);
+        }
+
+        i {
+            display: contents;
+            font-size: 16px;
+            color: #fff;
+        }
+
+        .dock {
+            width: auto;
+            height: 60px;
+            border-radius: 16px;
+            display: flex;
+            justify-content: center;
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .dock-container {
+            padding: 3px;
+            width: auto;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 16px;
+            background: rgba(83, 83, 83, 0.25);
+            backdrop-filter: blur(13px);
+            -webkit-backdrop-filter: blur(13px);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+        }
+
+        .li-bin {
+            margin-left: 20px;
+            border-left: 1.5px solid rgba(255, 255, 255, 0.4);
+            padding: 0px 10px;
+        }
+
+        .li-1::after {
+            position: absolute;
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+            content: "";
+            bottom: 2px;
+        }
+
+
+        li {
+            list-style: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            vertical-align: bottom;
+            transition: 0.2s;
+            transform-origin: 50% 100%;
+        }
+
+        li:hover {
+            margin: 0px 13px 0px 13px;
+        }
+
+
+        .name {
+            position: absolute;
+            top: -70px;
+            background: rgba(0, 0, 0, 0.5);
+            color: rgba(255, 255, 255, 0.9);
+            height: 10px;
+            padding: 10px 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 5px;
+            visibility: hidden;
+        }
+
+        .name::after {
+            content: "";
+            position: absolute;
+            bottom: -10px;
+            width: 0;
+            height: 0;
+            backdrop-filter: blur(13px);
+            -webkit-backdrop-filter: blur(13px);
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+            border-top: 10px solid rgba(0, 0, 0, 0.5);
+        }
+
+        .ico {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: 0.2s;
+        }
+
+        @for $i from 1 through 15 {
+            .li-#{$i}:hover {
+                .name {
+                    visibility: visible !important;
+                }
+            }
+        }
     </style>
 </head>
 
 <body>
     <form id="myForm" action="./backend.php?do=student" method="post">
         <input type="hidden" name="school_num" id="school_num">
-        <div>
-            <?php for ($i = 0; $i < count($_SESSION['school_nums']); $i++) { ?>
-                <img src="./image/<?= $_SESSION['school_imgs'][$i]; ?>" width="50px" data-value="<?= $_SESSION['school_nums'][$i]; ?>">
-            <?php }; ?>
+        <div class="dock">
+            <div class="dock-container">
+                <?php for ($i = 0; $i < count($_SESSION['school_nums']); $i++) { ?>
+                    <li class="li-<?= $i + 1; ?>">
+                        <div class="name">Finder</div>
+                        <img style="border-radius: 14px;" class="ico" src="./image/<?= $_SESSION['school_imgs'][$i]; ?>" data-value="<?= $_SESSION['school_nums'][$i]; ?>">
+                    </li>
+                <?php }; ?>
+            </div>
         </div>
     </form>
 
@@ -61,6 +195,40 @@ include_once "sidebar.php";
                 document.querySelector('#myForm').submit();
             });
         }
+        let icons = document.querySelectorAll(".ico");
+        let length = icons.length;
+
+        icons.forEach((item, index) => {
+            item.addEventListener("mouseover", (e) => {
+                focus(e.target, index);
+            });
+            item.addEventListener("mouseleave", (e) => {
+                icons.forEach((item) => {
+                    item.style.transform = "scale(1)  translateY(0px)";
+                });
+            });
+        });
+
+        const focus = (elem, index) => {
+            let previous = index - 1;
+            let previous1 = index - 2;
+            let next = index + 1;
+            let next2 = index + 2;
+
+            if (previous == -1) {
+                console.log("first element");
+                elem.style.transform = "scale(1.5)  translateY(-10px)";
+            } else if (next == icons.length) {
+                elem.style.transform = "scale(1.5)  translateY(-10px)";
+                console.log("last element");
+            } else {
+                elem.style.transform = "scale(1.5)  translateY(-10px)";
+                icons[previous].style.transform = "scale(1.2) translateY(-6px)";
+                icons[previous1].style.transform = "scale(1.1)";
+                icons[next].style.transform = "scale(1.2) translateY(-6px)";
+                icons[next2].style.transform = "scale(1.1)";
+            }
+        };
     </script>
     <?php
 
@@ -73,7 +241,7 @@ include_once "sidebar.php";
         include $file;
     } elseif (file_exists($fileBack)) {
         include $fileBack;
-    } 
+    }
     ?>
 </body>
 
