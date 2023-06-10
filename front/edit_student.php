@@ -23,14 +23,14 @@
         }
 
         .container {
-            width: 36vw;
+            width: 768px;
             height: 90vh;
-            display: flex;
-            flex-direction: column;
-            background-color: #fff;
+            /* display: flex; */
+            /* flex-direction: column; */
+            background-color: #ffffff80;
             box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-            border-radius: 15px;
-            padding: 20px;
+            /* border-radius: 15px; */
+            /* padding: 20px; */
             overflow: auto;
         }
 
@@ -64,8 +64,16 @@
             margin: 5px 0;
         }
 
-        a {
-            color: red;
+        .title>h1 {
+            display: none;
+        }
+        .back>a {
+            color: white;
+            position: absolute;
+            top: 90%;
+            left: 2%;
+            text-decoration: none;
+            font-size: 18px;            
         }
     </style>
 </head>
@@ -77,7 +85,7 @@
     foreach ($rows as $idx => $row) {
     ?>
         <form action="./api/edit_student.php" method="post">
-            <div class="container">
+            <div class="container d-flex flex-column rounded p-3">
                 <div class="header">
                     <div class="box1">
                         <div>學號</div>
@@ -111,11 +119,16 @@
                 </div>
                 <div><input type="text" name="intro" value="<?= $row['intro']; ?>"></div>
             </div>
-            <button type="submit">送出</button>
+            <button class="btn btn-secondary mt-2" type="submit">送出</button>
         </form>
     <?php
     }
     ?>
+      <div class="back">
+        <a href="index.php?do=student"><svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-arrow-left-short" viewBox="0 0 16 16">
+  <path fill-rule="evenodd" d="M12 8a.5.5 0 0 1-.5.5H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5a.5.5 0 0 1 .5.5z"/>
+</svg>back</a>
+    </div>
 </body>
 
 </html>

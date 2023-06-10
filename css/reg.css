@@ -53,6 +53,8 @@ body::backdrop {
     display: flex;
     justify-content: center;
     align-items: center;
+    overflow-y: auto;
+    ::-webkit-scrollbar-track { background: transparent; };
 }
 
 #bReg {
@@ -65,4 +67,7 @@ body::backdrop {
     background: #469c76;
     border-color: #469c76;
     color: white;
+}
+#regBox > #formContainer{
+    height: 300px;
 }
