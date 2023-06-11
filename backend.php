@@ -14,7 +14,6 @@ include_once "sidebar.php";
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
     <style>
-
         #sidebar {
             position: fixed;
             left: -230px;
@@ -25,11 +24,6 @@ include_once "sidebar.php";
             background-color: #f1f1f1;
             transition: all 0.5s;
         }
-
-     
-
-        
-
         #sidebar-button-wrapper {
             position: fixed;
             left: 8px;
@@ -37,11 +31,9 @@ include_once "sidebar.php";
             transition: all 0.5s;
             border: none;
         }
-
         .singOut>a {
             display: none;
         }
-
         @font-face {
             font-family: "San Francisco";
             font-weight: 400;
