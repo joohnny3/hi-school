@@ -14,10 +14,6 @@ include_once "sidebar.php";
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
     <style>
-            a {
-            text-decoration: none;
-            font-size: 18px;
-        }
 
         #sidebar {
             position: fixed;
@@ -30,14 +26,9 @@ include_once "sidebar.php";
             transition: all 0.5s;
         }
 
-        button {
-            border: 1px solid lightgray;
-            border-radius: 8px;
-        }
+     
 
-        button:hover {
-            background-color: lightgrey;
-        }
+        
 
         #sidebar-button-wrapper {
             position: fixed;
@@ -45,10 +36,6 @@ include_once "sidebar.php";
             top: 5px;
             transition: all 0.5s;
             border: none;
-        }
-
-        h1 {
-            display: none;
         }
 
         .singOut>a {

@@ -46,7 +46,9 @@
             </div>
         </div>
     </div>
-    <hr>
+    <div class="hr_">
+        <hr>
+    </div>
     <div id="regBox">
         <div id="formContainer" style="display: none;">
             <form action="./api/reg.php" method="post">

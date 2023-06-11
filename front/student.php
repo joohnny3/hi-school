@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>學生基本資料</title>
-  <link rel="stylesheet" href="./css/student.css">
+    <link rel="stylesheet" href="./css/student.css">
 </head>
 
 <body>
@@ -40,7 +40,6 @@
                 if (isset($_SESSION['login'])) {
                 ?>
                     <p><a class="text-white" href="./api/logout.php">登出</a></p>
-                    <!-- <p style="position:absolute; bottom:1%; left:-20%; width:100%;"><a href="./api/logout.php">登出</a></p> -->
                 <?php
                 }
                 ?>
@@ -51,7 +50,7 @@
         ?>
         <div class="container d-flex flex-column rounded p-3">
             <div class="header">
-                <div class="box1">
+                <!-- <div class="box1">
                     <div>學號</div>
                     <div>科系</div>
                     <div>出生日期</div>
@@ -60,33 +59,47 @@
                     <div>電子郵件</div>
                     <div>監護人</div>
                     <div>成績</div>
-                </div>
+                </div> -->
                 <?php foreach ($scores as  $value) { ?>
                     <div class="box2">
-                        <div><?= $row['school_num']; ?></div>
+                        <div><?= $row['name']; ?></div>
                         <div><?= $row['dept']; ?></div>
-                        <div><?= $row['birthday']; ?></div>
+                        <div><?= $row['school_num']; ?></div>
                         <div><?= $row['uni_id']; ?></div>
+                        <div><?= $row['birthday']; ?></div>
                         <div><?= $row['tel']; ?></div>
                         <div><?= $row['email']; ?></div>
-                        <div><?= $row['guardian']; ?></div>
-                        <div><?= $value['scores']; ?></div>
+                        <div><?= $row['addr']; ?></div>
+                        <!-- <div><?= $row['guardian']; ?></div>
+                        <div><?= $value['scores']; ?></div> -->
                     </div>
                 <?php } ?>
                 <div class="photo">
                     <div id="img" class="position-relative">
                         <a href="index.php?do=photo_upload">
-                            <img src="./image/<?= $row['img']; ?>" alt="" width="144px">
+                            <img src="./image/<?= $row['img']; ?>" alt="" height="250px">
                         </a>
                     </div>
-                    <div><?= $row['en_name']; ?></div>
+                    <div class="enName">
+                        <h5>
+                            <?= $row['en_name']; ?>
+                        </h5>
+                    </div>
                 </div>
             </div>
-            <div class="nav">
+            <!-- <hr> -->
+            <!-- <div class="nav">
                 <div>地址</div>
                 <div><?= $row['addr']; ?></div>
+            </div> -->
+            <br>
+            <div class="intro">
+                <h5>簡介</h5>
+                <!-- intro -->
             </div>
-            <div>簡介</div>
+            <div class="hr_">
+                <hr>
+            </div>
             <div><?= $row['intro']; ?></div>
         </div>
         <?php

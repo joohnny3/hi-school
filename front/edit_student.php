@@ -23,7 +23,7 @@
         }
 
         .container {
-            width: 768px;
+            width: 600px;
             height: 90vh;
             /* display: flex; */
             /* flex-direction: column; */
@@ -38,13 +38,10 @@
         .nav,
         .footer {
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
             padding: 10px;
         }
 
-        .header {
-            height: 40%;
-        }
 
         .nav {
             height: 5%;
@@ -67,13 +64,30 @@
         .title>h1 {
             display: none;
         }
+
         .back>a {
             color: white;
             position: absolute;
             top: 90%;
             left: 2%;
             text-decoration: none;
-            font-size: 18px;            
+            font-size: 18px;
+        }
+
+        .box2 {
+            width: 70%;
+        }
+
+        .intro>input {
+            width: 380px;
+            height: 50px;
+            padding: 5px;
+            border: 1px solid #ced4da;
+            border-radius: 0.375rem;
+        }
+
+        .intro>input[value] {
+            text-overflow: ellipsis;
         }
     </style>
 </head>
@@ -87,47 +101,59 @@
         <form action="./api/edit_student.php" method="post">
             <div class="container d-flex flex-column rounded p-3">
                 <div class="header">
-                    <div class="box1">
-                        <div>學號</div>
-                        <div>科系</div>
-                        <div>出生日期</div>
-                        <div>身分證字號</div>
-                        <div>電話</div>
-                        <div>電子郵件</div>
-                        <div>監護人</div>
-                    </div>
                     <div class="box2">
-                        <div><input type="text" name="school_num" value="<?= $row['school_num']; ?>" readonly></div>
-                        <div><input type="text" name="dept" value="<?= $row['dept']; ?>" readonly></div>
-                        <div><input type="text" name="birthday" value="<?= $row['birthday']; ?>"></div>
-                        <div><input type="text" name="uni_id" value="<?= $row['uni_id']; ?>"></div>
-                        <div><input type="text" name="tel" value="<?= $row['tel']; ?>"></div>
-                        <div><input type="text" name="email" value="<?= $row['email']; ?>"></div>
-                        <div><input type="text" name="guardian" value="<?= $row['guardian']; ?>"></div>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="inputGroup-sizing-default">姓名</span>
+                            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" name="name" value="<?= $row['name']; ?>">
+                        </div>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="inputGroup-sizing-default">英文名字</span>
+                            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" name="en_name" value="<?= $row['en_name']; ?>">
+                        </div>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="inputGroup-sizing-default">科系</span>
+                            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" name="dept" value="<?= $row['dept']; ?>" disabled>
+                        </div>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="inputGroup-sizing-default">學號</span>
+                            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" name="school_num" value="<?= $row['school_num']; ?>" disabled>
+                        </div>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="inputGroup-sizing-default">身分證字號</span>
+                            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" name="uni_id" value="<?= $row['uni_id']; ?>" disabled>
+                        </div>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="inputGroup-sizing-default">出生日期</span>
+                            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" name="birthday" value="<?= $row['birthday']; ?>">
+                        </div>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="inputGroup-sizing-default">手機號碼</span>
+                            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" name="tel" value="<?= $row['tel']; ?>">
+                        </div>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="inputGroup-sizing-default">e-mail</span>
+                            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" name="email" value="<?= $row['email']; ?>">
+                        </div>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="inputGroup-sizing-default">地址</span>
+                            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" name="addr" value="<?= $row['addr']; ?>">
+                        </div>
                     </div>
-                    <div class="photo">
-                        <div>photo</div>
-                        <div><input type="text" name="en_name" value="<?= $row['en_name']; ?>"></div>
-                    </div>
-                </div>
-                <div class="nav">
-                    <div>地址</div>
-                    <div><input type="text" name="addr" value="<?= $row['addr']; ?>"></div>
                 </div>
                 <div class="footer">
-                    <div>簡介</div>
+                    <button type="button" class="btn btn-secondary" disabled>簡介</button>
                 </div>
-                <div><input type="text" name="intro" value="<?= $row['intro']; ?>"></div>
+                <div class="intro"><input type="text" name="intro" value="<?= $row['intro']; ?>"></div>
             </div>
-            <button class="btn btn-secondary mt-2" type="submit">送出</button>
+            <button class="btn btn-success mt-2" type="submit">送出</button>
         </form>
     <?php
     }
     ?>
-      <div class="back">
+    <div class="back">
         <a href="index.php?do=student"><svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-arrow-left-short" viewBox="0 0 16 16">
-  <path fill-rule="evenodd" d="M12 8a.5.5 0 0 1-.5.5H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5a.5.5 0 0 1 .5.5z"/>
-</svg>back</a>
+                <path fill-rule="evenodd" d="M12 8a.5.5 0 0 1-.5.5H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5a.5.5 0 0 1 .5.5z" />
+            </svg>back</a>
     </div>
 </body>
 
