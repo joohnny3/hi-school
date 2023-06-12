@@ -10,13 +10,15 @@
 
 <body>
     <form action="./api/add_scores.php" method="post">
-        <div>
-            <label for="scores"></label>
-            <input type="text" name="scores" id="scores" value="請輸入" onfocus="this.value=''">
-        </div>
-        <div>
-            <input type="hidden" name="school_num" id="school_num" value="<?= $_POST['school_num'] ?>">
-            <input type="submit" value="送出">
+        <div class="input-group mb-3">
+            <div>
+                <label for="scores"></label>
+                <input class="form-control" type="text" name="scores" id="scores" value="請輸入" onfocus="this.value=''">
+            </div>
+            <div>
+                <input type="hidden" name="school_num" id="school_num" value="<?= $_POST['school_num'] ?>">
+                <input class="btn btn btn-secondary" type="submit" value="送出">
+            </div>
         </div>
     </form>
 </body>

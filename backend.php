@@ -9,11 +9,28 @@ include_once "sidebar.php";
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <link rel="icon" href="./photo/hello.png" type="image/png">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <title>hi_School</title>
     <style>
+        body {
+            background-image: url(./photo/index.jpg);
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: auto;
+            background-repeat: no-repeat;
+        }
+
         #sidebar {
             position: fixed;
             left: -230px;
@@ -21,9 +38,19 @@ include_once "sidebar.php";
             width: 230px;
             height: 100vh;
             overflow-y: auto;
-            background-color: #f1f1f1;
+            background-color: #0c0c0c9e;
             transition: all 0.5s;
         }
+
+        button {
+            border: 1px solid lightgray;
+            border-radius: 8px;
+        }
+
+        button:hover {
+            background-color: lightgrey;
+        }
+
         #sidebar-button-wrapper {
             position: fixed;
             left: 8px;
@@ -31,9 +58,21 @@ include_once "sidebar.php";
             transition: all 0.5s;
             border: none;
         }
+
+        .btn-link {
+            text-decoration: none;
+            --bs-btn-color: #f8f9fa;
+            font-size: 18px;
+        }
+
+        .btn-link:hover {
+            color: #f8f9fa;
+        }
+
         .singOut>a {
             display: none;
         }
+
         @font-face {
             font-family: "San Francisco";
             font-weight: 400;
@@ -71,7 +110,7 @@ include_once "sidebar.php";
         }
 
         .dock-container {
-            padding: 3px;
+            padding: 5px;
             width: auto;
             height: 100%;
             display: flex;
@@ -143,6 +182,11 @@ include_once "sidebar.php";
             border-left: 10px solid transparent;
             border-right: 10px solid transparent;
             border-top: 10px solid rgba(0, 0, 0, 0.5);
+        }
+
+        .bLogout>a {
+            text-decoration: none;
+            font-size: 18px;
         }
 
         .ico {
@@ -315,6 +359,7 @@ include_once "sidebar.php";
                 buttonWrapper.style.left = '230px';
             }
         }
+
         const images = document.querySelectorAll('img');
         for (let i = 0; i < images.length; i++) {
             images[i].addEventListener('click', function() {

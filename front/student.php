@@ -87,12 +87,6 @@
                     </div>
                 </div>
             </div>
-            <!-- <hr> -->
-            <!-- <div class="nav">
-                <div>地址</div>
-                <div><?= $row['addr']; ?></div>
-            </div> -->
-            <br>
             <div class="intro">
                 <h5>簡介</h5>
                 <!-- intro -->

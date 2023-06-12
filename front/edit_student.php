@@ -47,10 +47,6 @@
             height: 5%;
         }
 
-        .footer {
-            height: 55%;
-        }
-
         .photo {
             width: 40%;
         }
@@ -80,7 +76,7 @@
 
         .intro>input {
             width: 380px;
-            height: 50px;
+            height: 250px;
             padding: 5px;
             border: 1px solid #ced4da;
             border-radius: 0.375rem;
@@ -88,6 +84,7 @@
 
         .intro>input[value] {
             text-overflow: ellipsis;
+            white-space: pre-wrap;
         }
     </style>
 </head>
