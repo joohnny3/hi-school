@@ -10,15 +10,15 @@
 
 <body>
     <form action="./api/add_scores.php" method="post">
-        <div class="input-group mb-3">
+        <div class="input-group mb-3 ">
             <div>
                 <label for="scores"></label>
-                <input class="form-control" type="text" name="scores" id="scores" value="請輸入" onfocus="this.value=''">
+                <input class="form-control" type="text" name="scores" id="scores" value="請輸入學生分數" onfocus="this.value=''">
             </div>
-            <div>
-                <input type="hidden" name="school_num" id="school_num" value="<?= $_POST['school_num'] ?>">
-                <input class="btn btn btn-secondary" type="submit" value="送出">
-            </div>
+        </div>
+        <div>
+            <input type="hidden" name="school_num" id="school_num" value="<?= $_POST['school_num'] ?>">
+            <input class="btn btn btn-success mt-2" type="submit" value="上傳">
         </div>
     </form>
 </body>
