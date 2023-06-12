@@ -22,14 +22,14 @@
         $selected_student = $_SESSION['select'][$i];
         if (isset($student_images[$selected_student])) {
             $img = $student_images[$selected_student];
-            ?>
-            <img src="./image/<?= $img ;?>" alt="" width="100px">
-        <?php
+    ?>
+            <img src="./image/<?= $img; ?>" alt="" width="100px">
+    <?php
         }
     }
     unset($_SESSION['select']);
     ?>
-    
+
 
 
 </body>
