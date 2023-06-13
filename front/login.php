@@ -8,13 +8,6 @@
     <link rel="stylesheet" href="./css/login.css">
     <title>login</title>
     <style>
-        .container {
-            width: 60vw;
-            backdrop-filter: blur(8px);
-            padding: 30vh;
-            border-radius: 12px;
-            box-shadow: 1px 1px 0px #978676;
-        }
       
     </style>
 </head>
@@ -27,11 +20,6 @@
         echo "</span>";
     }
     ?>
-    <div class="container text-center">
-        <div class="row">
-            <div class="col">
-            </div>
-            <div class="col">
                 <form action="./api/login.php" method="post">
                     <div class="text-center"><span class="align-middle">
                             <h2>
@@ -57,12 +45,6 @@
                         <input type="submit" class="btn btn-primary form-control-plaintext" value="login" id="mybtn">
                     </div>
                 </form>
-            </div>
-            <div class="col">
-
-            </div>
-        </div>
-    </div>
 
 </body>
 
