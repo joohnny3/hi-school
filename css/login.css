@@ -36,7 +36,7 @@ body::before {
   background-image: url("your-image.jpg"); /* 替换为你想要使用的背景图像的URL */
   background-size: cover;
   background-position: center;
-  backdrop-filter: blur(8px);
+  /* backdrop-filter: blur(8px); */
 }
 
 body::backdrop {

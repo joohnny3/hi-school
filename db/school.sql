@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- 主機： 127.0.0.1
--- 產生時間： 2023-06-12 08:38:54
+-- 產生時間： 2023-06-13 10:26:14
 -- 伺服器版本： 10.4.27-MariaDB
 -- PHP 版本： 8.2.0
 
@@ -132,28 +132,32 @@ INSERT INTO `permissions` (`id`, `name`, `user`, `password`, `role`, `uni_id`) V
 CREATE TABLE `scores` (
   `school_num` int(15) NOT NULL,
   `dept` varchar(10) NOT NULL,
-  `scores` int(15) DEFAULT NULL
+  `scores` int(15) DEFAULT NULL,
+  `scores_2` int(10) DEFAULT NULL,
+  `scores_3` int(10) DEFAULT NULL,
+  `scores_4` int(10) DEFAULT NULL,
+  `scores_5` int(10) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- 傾印資料表的資料 `scores`
 --
 
-INSERT INTO `scores` (`school_num`, `dept`, `scores`) VALUES
-(11250101, '資訊工程', 70),
-(11250102, '資訊工程', 40),
-(11250103, '資訊工程', 78),
-(11250104, '資訊工程', 90),
-(11250105, '資訊工程', 40),
-(11250106, '資訊工程', NULL),
-(11250201, '商業管理', 80),
-(11250202, '商業管理', 40),
-(11250203, '商業管理', NULL),
-(11250204, '商業管理', NULL),
-(11250205, '商業管理', NULL),
-(11250301, '化工材料', NULL),
-(11250302, '化工材料', NULL),
-(11250303, '化工材料', NULL);
+INSERT INTO `scores` (`school_num`, `dept`, `scores`, `scores_2`, `scores_3`, `scores_4`, `scores_5`) VALUES
+(11250101, '資訊工程', 70, 80, 90, 60, 50),
+(11250102, '資訊工程', 40, 55, 65, 75, 88),
+(11250103, '資訊工程', 78, 91, 93, 70, 65),
+(11250104, '資訊工程', 90, 96, 69, 75, 84),
+(11250105, '資訊工程', 40, 55, 95, 0, 68),
+(11250106, '資訊工程', 66, 78, 75, 85, 58),
+(11250201, '商業管理', 80, NULL, NULL, NULL, NULL),
+(11250202, '商業管理', 40, NULL, NULL, NULL, NULL),
+(11250203, '商業管理', NULL, NULL, NULL, NULL, NULL),
+(11250204, '商業管理', NULL, NULL, NULL, NULL, NULL),
+(11250205, '商業管理', NULL, NULL, NULL, NULL, NULL),
+(11250301, '化工材料', NULL, NULL, NULL, NULL, NULL),
+(11250302, '化工材料', NULL, NULL, NULL, NULL, NULL),
+(11250303, '化工材料', NULL, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
