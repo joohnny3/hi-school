@@ -34,7 +34,7 @@
                     <?php
                     }
                     ?>
-
+                    <a class="text-white" href="index.php?do=student_scores">成績查詢</a>
                 </div>
                 <?php
                 if (isset($_SESSION['login'])) {

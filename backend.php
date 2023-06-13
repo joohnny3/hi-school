@@ -110,7 +110,7 @@ include_once "sidebar.php";
         }
 
         .dock-container {
-            padding: 5px;
+            padding: 5px !important;
             width: auto;
             height: 100%;
             display: flex;
@@ -329,10 +329,27 @@ include_once "sidebar.php";
                 }
             }
         }
+
+        #adFull>img {
+            width: 100vw !important;
+            height: 100vh !important;
+        }
+
+        #adFull {
+           
+            position: fixed;
+            text-align: center;
+            z-index: 9999;
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
     </style>
 </head>
 
 <body>
+    <div id="adFull">
+        <img src="./photo/teacher.png" id="adImage">
+    </div>
     <form id="myForm" action="./backend.php?do=student" method="post">
         <input type="hidden" name="school_num" id="school_num">
         <div class="dock">
@@ -359,6 +376,30 @@ include_once "sidebar.php";
                 buttonWrapper.style.left = '230px';
             }
         }
+        const adclose = document.querySelector("#adFull");
+
+        adclose.addEventListener('click', () => {
+            adclose.style.display = "none";
+        });
+
+        function findCook(name) {
+            var ckary = document.cookie.split("; ");
+            var getck = ckary.find(function(e) {
+                return name == e.substr(0, name.length);
+            });
+            if (getck != undefined) return getck.split("=")[1];
+            else return false;
+        }
+        var eatCook = findCook("watchedAd");
+        if (!eatCook) {
+            var end = new Date();
+            end.setHours(23), end.setMinutes(59), end.setSeconds(59);
+            document.cookie = "watchedAd=yes;expires=" + end.toUTCString();
+        } else document.getElementById("adFull").remove();
+
+
+
+
 
         const images = document.querySelectorAll('img');
         for (let i = 0; i < images.length; i++) {
