@@ -15,6 +15,9 @@
             height: 30%;
             width: auto;
         }
+        body{
+            backdrop-filter: blur(8px) !important;
+        }
     </style>
 </head>
 

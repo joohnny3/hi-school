@@ -1,5 +1,7 @@
 body {
   background-image: url(../photo/index.jpg);
+  /* background-image: url(../photo/book.jpg); */
+  /* background-image: url(../photo/table.jpg); */
   background-size: cover;
   background-position: center;
   display: flex;

@@ -30,7 +30,7 @@ include_once "sidebar.php";
             margin: auto;
             background-repeat: no-repeat;
         }
-
+        
         #sidebar {
             position: fixed;
             left: -230px;
@@ -42,14 +42,6 @@ include_once "sidebar.php";
             transition: all 0.5s;
         }
 
-        button {
-            border: 1px solid lightgray;
-            border-radius: 8px;
-        }
-
-        button:hover {
-            background-color: lightgrey;
-        }
 
         #sidebar-button-wrapper {
             position: fixed;
@@ -73,29 +65,13 @@ include_once "sidebar.php";
             display: none;
         }
 
-        @font-face {
-            font-family: "San Francisco";
-            font-weight: 400;
-            src: url("https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-regular-webfont.woff");
-        }
-
-        @font-face {
-            font-family: "San Francisco";
-            font-weight: 800;
-            src: url("https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-bold-webfont.woff");
-        }
-
-        .control-center {
+        
+       .control-center {
             -webkit-filter: invert(100%);
             filter: invert(100%);
             transform: scale(0.5);
         }
 
-        i {
-            display: contents;
-            font-size: 16px;
-            color: #fff;
-        }
 
         .dock {
             width: auto;
@@ -110,7 +86,7 @@ include_once "sidebar.php";
         }
 
         .dock-container {
-            padding: 5px !important;
+            padding: 5px;
             width: auto;
             height: 100%;
             display: flex;
@@ -154,182 +130,18 @@ include_once "sidebar.php";
 
         li:hover {
             margin: 0px 13px 0px 13px;
+        }      
+        .ico {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: 0.2s;
         }
-
-
-        .name {
-            position: absolute;
-            top: -70px;
-            background: rgba(0, 0, 0, 0.5);
-            color: rgba(255, 255, 255, 0.9);
-            height: 10px;
-            padding: 10px 15px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 5px;
-            visibility: hidden;
-        }
-
-        .name::after {
-            content: "";
-            position: absolute;
-            bottom: -10px;
-            width: 0;
-            height: 0;
-            backdrop-filter: blur(13px);
-            -webkit-backdrop-filter: blur(13px);
-            border-left: 10px solid transparent;
-            border-right: 10px solid transparent;
-            border-top: 10px solid rgba(0, 0, 0, 0.5);
-        }
-
+        
         .bLogout>a {
             text-decoration: none;
             font-size: 18px;
         }
-
-        .ico {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: 0.2s;
-        }
-
-        @for $i from 1 through 15 {
-            .li-#{$i}:hover {
-                .name {
-                    visibility: visible !important;
-                }
-            }
-        }
-
-        @font-face {
-            font-family: "San Francisco";
-            font-weight: 400;
-            src: url("https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-regular-webfont.woff");
-        }
-
-        @font-face {
-            font-family: "San Francisco";
-            font-weight: 800;
-            src: url("https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-bold-webfont.woff");
-        }
-
-        .control-center {
-            -webkit-filter: invert(100%);
-            filter: invert(100%);
-            transform: scale(0.5);
-        }
-
-        i {
-            display: contents;
-            font-size: 16px;
-            color: #fff;
-        }
-
-        .dock {
-            width: auto;
-            height: 60px;
-            border-radius: 16px;
-            display: flex;
-            justify-content: center;
-            position: absolute;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-
-        .dock-container {
-            padding: 3px;
-            width: auto;
-            height: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 16px;
-            background: rgba(83, 83, 83, 0.25);
-            backdrop-filter: blur(13px);
-            -webkit-backdrop-filter: blur(13px);
-            border: 1px solid rgba(255, 255, 255, 0.18);
-        }
-
-        .li-bin {
-            margin-left: 20px;
-            border-left: 1.5px solid rgba(255, 255, 255, 0.4);
-            padding: 0px 10px;
-        }
-
-        .li-1::after {
-            position: absolute;
-            width: 5px;
-            height: 5px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.5);
-            content: "";
-            bottom: 2px;
-        }
-
-
-        li {
-            list-style: none;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 50px;
-            height: 50px;
-            vertical-align: bottom;
-            transition: 0.2s;
-            transform-origin: 50% 100%;
-        }
-
-        li:hover {
-            margin: 0px 13px 0px 13px;
-        }
-
-
-        .name {
-            position: absolute;
-            top: -70px;
-            background: rgba(0, 0, 0, 0.5);
-            color: rgba(255, 255, 255, 0.9);
-            height: 10px;
-            padding: 10px 15px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 5px;
-            visibility: hidden;
-        }
-
-        .name::after {
-            content: "";
-            position: absolute;
-            bottom: -10px;
-            width: 0;
-            height: 0;
-            backdrop-filter: blur(13px);
-            -webkit-backdrop-filter: blur(13px);
-            border-left: 10px solid transparent;
-            border-right: 10px solid transparent;
-            border-top: 10px solid rgba(0, 0, 0, 0.5);
-        }
-
-        .ico {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: 0.2s;
-        }
-
-        @for $i from 1 through 15 {
-            .li-#{$i}:hover {
-                .name {
-                    visibility: visible !important;
-                }
-            }
-        }
-
         #adFull>img {
             width: 100vw !important;
             height: 100vh !important;
@@ -347,16 +159,16 @@ include_once "sidebar.php";
 </head>
 
 <body>
-    <div id="adFull">
-        <img src="./photo/teacher.png" id="adImage">
-    </div>
+        <div id="adFull">
+            <img src="./photo/teacher.png" id="adImage">
+        </div> 
     <form id="myForm" action="./backend.php?do=student" method="post">
         <input type="hidden" name="school_num" id="school_num">
         <div class="dock">
             <div class="dock-container">
                 <?php for ($i = 0; $i < count($_SESSION['school_nums']); $i++) { ?>
                     <li class="li-<?= $i + 1; ?>">
-                        <div class="name">Finder</div>
+                        <div class="name"></div>
                         <img style="border-radius: 14px;" class="ico" src="./image/<?= $_SESSION['school_imgs'][$i]; ?>" data-value="<?= $_SESSION['school_nums'][$i]; ?>">
                     </li>
                 <?php }; ?>
@@ -397,11 +209,7 @@ include_once "sidebar.php";
             document.cookie = "watchedAd=yes;expires=" + end.toUTCString();
         } else document.getElementById("adFull").remove();
 
-
-
-
-
-        const images = document.querySelectorAll('img');
+        const images = document.querySelectorAll('.ico');
         for (let i = 0; i < images.length; i++) {
             images[i].addEventListener('click', function() {
                 const val = this.getAttribute('data-value');
