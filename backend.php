@@ -61,7 +61,7 @@ include_once "sidebar.php";
             color: #f8f9fa;
         }
 
-        .singOut>a {
+        .signOut>a {
             display: none;
         }
 

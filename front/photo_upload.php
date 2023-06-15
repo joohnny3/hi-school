@@ -43,7 +43,7 @@
 
         }
 
-        .singOut {
+        .signOut {
             /* display: none; */
         }
     </style>

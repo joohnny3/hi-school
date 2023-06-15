@@ -28,12 +28,12 @@
                     <a href="index.php?do=login">Log in</a>
                 </div>
                 <div class="register">
-                    <a href="index.php?do=reg">Sing up</a>
+                    <a href="index.php?do=reg">Sign up</a>
                 </div>
             </div>
         <?php } else { ?>
-            <div class="singOut">
-                <a href="./api/logout.php">Sing out</a>
+            <div class="signOut">
+                <a href="./api/logout.php">Sign out</a>
             </div>
         <?php } ?>
     </header>
