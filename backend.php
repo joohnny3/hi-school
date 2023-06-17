@@ -156,6 +156,9 @@ include_once "sidebar.php";
             background-size: cover;
             background-repeat: no-repeat;
         }
+        .back>a{
+            display: none;
+        }
     </style>
 </head>
 

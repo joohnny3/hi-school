@@ -1,4 +1,4 @@
-<div id="sidebar" class="d-flex flex-column align-items-start justify-content-between px-5 py-4">
+<div id="sidebar" class="d-flex flex-column align-items-start justify-content-between px-5 py-4" style="text-align: center;">
     <div>
         <?php if (isset($_SESSION['school_nums'])) { ?>
             <span>
@@ -16,6 +16,10 @@
                 </form>
             </span>
         <?php }; ?>
+        <p>
+            <a class="text-white" style="text-decoration: none;
+    font-size: 18px;" href="backend.php?do=teacher_message">新增留言板訊息</a>
+        </p>
     </div>
     <?php if (isset($_SESSION['login'])) { ?>
         <p class="bLogout"><a class="text-white" href="./api/logout.php">登出</a></p>
