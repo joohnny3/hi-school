@@ -5,7 +5,7 @@ $repeat = _count('permissions', ['user' => $_POST['user']]);
 if ($repeat) {
     header("location:../index.php?do=reg&repeat=1");
 } elseif (
-    $_POST['role'] == "teacher" && !empty($_POST) 
+    $_POST['role'] == "teacher" && !empty($_POST)
 ) {
     $sql = "INSERT into `permissions` (`name`,`uni_id`,`user`,`password`,`role`)
      values('{$_POST['name']}',

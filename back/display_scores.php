@@ -12,12 +12,18 @@
             flex-direction: inherit;
         }
 
-        body>img {
+        .scoreStudent>img {
             height: 30%;
             width: auto;
             margin: 0 13px;
-            border-radius: 27px;
-            border: 7px dashed white;
+            border-radius: 7px;
+            border: 1px dashed white;
+            margin-bottom: 4px;
+        }
+        .scoreStudent{
+            text-align: center;
+            font-size: 18px;
+            text-shadow: 0px 1px 1px white;
         }
 
         body {
@@ -28,6 +34,15 @@
 
 <body>
     <?php
+
+    $scoreName = $_SESSION['select'];
+
+
+    for ($i = 0; $i < count($scoreName); $i++) {
+        $sql = "SELECT `name`,`school_num` from `students` where `school_num`='{$scoreName[$i]}'";
+        $row = $pdo->query($sql)->fetchAll(PDO::FETCH_ASSOC);
+        $rows[] = $row;
+    }
 
     $student_images = [];
     foreach ($_SESSION['school_imgs'] as $img) {
@@ -41,7 +56,11 @@
         if (isset($student_images[$selected_student])) {
             $img = $student_images[$selected_student];
     ?>
-            <img src="./image/<?= $img; ?>" alt="" width="100px">
+           <div class="scoreStudent">
+            <img src="./image/<?= $img; ?>" alt="" width="100px"><br>
+               <?= $rows[$i][0]['name']; ?><br>
+               <?= $rows[$i][0]['school_num']; ?>
+            </div>
     <?php
         }
     }

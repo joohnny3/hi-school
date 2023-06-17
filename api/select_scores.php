@@ -1,8 +1,5 @@
 <?php require_once "../db.php";
 
-
-dd($_POST);
-
 switch ($_POST['scores']) {
     case 'max':
         select_scores('=', "(SELECT MAX(`scores`) FROM scores WHERE LEFT(`school_num`, 6) = LEFT('{$_SESSION['school_nums'][0]}', 6))", $_SESSION['school_nums'][0]);

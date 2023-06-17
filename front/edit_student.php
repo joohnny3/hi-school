@@ -27,7 +27,7 @@
             height: 90vh;
             /* display: flex; */
             /* flex-direction: column; */
-            background-color: #ffffff80;
+            background-color: #ffffff90;
             box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
             /* border-radius: 15px; */
             /* padding: 20px; */
@@ -87,8 +87,21 @@
         .header {
             margin-bottom: -25px;
         }
-        .footer{
+
+        .footer {
             padding-bottom: initial;
+        }
+
+        #editBtn {
+            background-color: lightgreen;
+            border-color: lightgreen;
+            color: black;
+        }
+
+        #editBtn:hover {
+            background: #469c76;
+            border-color: #469c76;
+            color: white;
         }
     </style>
 </head>
@@ -142,12 +155,12 @@
                     </div>
                 </div>
                 <div class="footer">
-                    <strong>簡介</strong> 
+                    <strong>簡介</strong>
                 </div>
                 <div class="intro"><textarea name="intro"><?= nl2br($row['intro']) ?></textarea>
                 </div>
             </div>
-            <button class="btn btn-success mt-2" type="submit">送出</button>
+            <button class="btn btn-success mt-2" id="editBtn" type="submit">送出</button>
         </form>
     <?php
     }

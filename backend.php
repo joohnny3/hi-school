@@ -150,7 +150,6 @@ include_once "sidebar.php";
         }
 
         #adFull {
-
             position: fixed;
             text-align: center;
             z-index: 9999;

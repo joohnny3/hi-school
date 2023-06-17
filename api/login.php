@@ -37,7 +37,7 @@ if ($chk) {
         $_SESSION['birthday'] = $school_num['birthday'];
         $_SESSION['uni_id'] = $school_num['uni_id'];
         $_SESSION['dept'] = $school_num['dept'];
-        
+
         header("location:../index.php?do=student");
     } else {
         print "來者何人?";

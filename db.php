@@ -8,7 +8,8 @@ date_default_timezone_set("Asia/Taipei");
 
 session_start();
 
-function q($sql){
+function q($sql)
+{
     $dsn = "mysql:host=127.0.0.1;charset=utf8;dbname=school";
     $pdo = new PDO($dsn, 'root', '');
 
@@ -53,11 +54,12 @@ function _count($table, ...$arg)
 }
 
 
-function getStudentData($school_num, $pdo) {
+function getStudentData($school_num, $pdo)
+{
     $sql = "SELECT * FROM `images` INNER JOIN `students` 
             ON `images`.`school_num` = `students`.`school_num` 
             WHERE `students`.`school_num` = {$school_num}";
-    
+
     $sql_scores = "SELECT scores FROM `scores`,`students` 
                    WHERE `scores`.`school_num`=`students`.`school_num` 
                    AND `scores`.`school_num` = {$school_num}";
@@ -68,7 +70,8 @@ function getStudentData($school_num, $pdo) {
     return [$rows, $scores];
 }
 
-function select_scores($math, $score_value, $school_num){
+function select_scores($math, $score_value, $school_num)
+{
     $dsn = "mysql:host=127.0.0.1;charset=utf8;dbname=school";
     $pdo = new PDO($dsn, 'root', '');
     $sql = "SELECT `school_num`, `scores` 

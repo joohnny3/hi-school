@@ -1,18 +1,18 @@
 <div id="sidebar" class="d-flex flex-column align-items-start justify-content-between px-5 py-4">
     <div>
+        <?php if (isset($_SESSION['school_nums'])) { ?>
+            <span>
+                <form method="post" action="backend.php?do=select_scores">
+                    <input type="hidden" name="school_num" value="<?= $_POST['school_num'] ?>">
+                    <button type="submit" class="btn btn-link">成績查詢</button>
+                </form>
+            </span>
+        <?php }; ?>
         <?php if (!isset($value['scores']) && isset($_POST['school_num'])) { ?>
             <span>
                 <form method="post" action="backend.php?do=add_scores">
                     <input type="hidden" name="school_num" value="<?= $_POST['school_num'] ?>">
                     <button type="submit" class="btn btn-link">成績登入</button>
-                </form>
-            </span>
-        <?php }; ?>
-        <?php if (isset($_SESSION['school_nums'])) { ?>
-            <span>
-                <form method="post" action="backend.php?do=select_scores">
-                    <input type="hidden" name="school_num" value="<?= $_POST['school_num'] ?>">
-                    <button type="submit"  class="btn btn-link">成績查詢</button>
                 </form>
             </span>
         <?php }; ?>

@@ -16,11 +16,11 @@
         }
 
         img {
-            border: dashed black;
+            border: 4px dashed white;
         }
 
         .card {
-            background: #ffffff80 !important;
+            background: #ffffff90 !important;
         }
 
         #formContainer {
@@ -41,10 +41,6 @@
             text-decoration: none;
             font-size: 18px;
 
-        }
-
-        .signOut {
-            /* display: none; */
         }
     </style>
 </head>

@@ -20,10 +20,16 @@
 <body>
     <header>
         <?php
+        if (empty($_GET)) { ?>
+            <div class="message" style="display: flex;">
+                <a href="index.php?do=message_board">Message</a>
+            </div>
+        <?php }
+        ?>
+        <?php
         if (!isset($_SESSION['login'])) {
         ?>
             <div class="menu">
-
                 <div class="login">
                     <a href="index.php?do=login">Log in</a>
                 </div>

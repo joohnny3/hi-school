@@ -16,6 +16,7 @@
             width: 250px;
             height: 120px;
             text-align: center;
+            background-color: #e9ecefcf;
         }
 
         .selectBtn {

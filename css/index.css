@@ -43,13 +43,24 @@ body {
   font-size: 24px;
 }
 
+.message {
+  position: absolute;
+  top: 90%;
+  left: 4%;
+  justify-content: space-between;
+  width: 180px;
+  font-size: 26px;
+  display: none;
+}
 
+.message:hover > a,
 .login:hover > a,
 .register:hover > a,
-.signOut:hover > a{
+.signOut:hover > a {
   color: black;
 }
 
+.message > a,
 .login > a,
 .register > a,
 .signOut > a {
@@ -60,10 +71,10 @@ body {
   position: relative;
 }
 
+.message > a::after,
 .login > a::after,
-.register > a::after, 
-.signOut > a::after
-{
+.register > a::after,
+.signOut > a::after {
   content: "";
   border-bottom: 1px dashed lightgrey;
   position: absolute;
@@ -74,6 +85,7 @@ body {
   transition: opacity 0.3s ease;
 }
 
+.message:hover > a::after,
 .login:hover > a::after,
 .register:hover > a::after,
 .signOut:hover > a::after {
@@ -81,8 +93,12 @@ body {
   animation: fadeinout 2s infinite;
 }
 
-
 @keyframes fadeinout {
-  0%,100% { opacity: 1; }
-  50% { opacity: 0; }
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
 }

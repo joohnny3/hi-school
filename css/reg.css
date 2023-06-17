@@ -79,9 +79,9 @@ body::backdrop {
   margin: 1rem 100px;
 }
 
-#studentBox{
+#studentBox {
   justify-content: end;
 }
-#teacherBox{
+#teacherBox {
   justify-content: start;
 }
