@@ -1,10 +1,12 @@
 <?php require_once "../db.php";
+dd($_POST);
+dd($_SESSION);
 
 $chk = _count('scores', ['school_num' => $_POST['school_num']]);
 
 if ($chk) {
     $sql = "UPDATE `scores` set
-    `scores`='{$_POST['scores']}' where `school_num` = '{$_POST['school_num']}'";
+    `{$_POST['score_select']}`='{$_POST['score_input']}' where `school_num` = '{$_POST['school_num']}'";
     $pdo->exec($sql);
     header("location:../backend.php");
 }else{

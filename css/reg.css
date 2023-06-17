@@ -78,3 +78,10 @@ body::backdrop {
   border-top: 2px solid;
   margin: 1rem 100px;
 }
+
+#studentBox{
+  justify-content: end;
+}
+#teacherBox{
+  justify-content: start;
+}

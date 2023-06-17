@@ -1,7 +1,7 @@
 <?php require_once "../db.php";
 
-// ini_set('display_errors', 1);
-// error_reporting(E_ALL);
+
+dd($_POST);
 
 switch ($_POST['scores']) {
     case 'max':

@@ -45,7 +45,9 @@ body {
 .photo {
   width: 50%;
 }
-
+.teacherPhoto{
+  width: 50%;
+}
 .photo:hover img {
   filter: blur(1px);
 }

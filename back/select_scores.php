@@ -11,6 +11,28 @@
             font-size: 20px;
             color: white;
         }
+
+        #selectScores {
+            width: 250px;
+            height: 120px;
+            text-align: center;
+        }
+
+        .selectBtn {
+            text-align: center;
+        }
+
+        #selBtn {
+            background-color: lightgreen;
+            border-color: lightgreen;
+            color: black;
+        }
+
+        #selBtn:hover {
+            background: #469c76;
+            border-color: #469c76;
+            color: white;
+        }
     </style>
 </head>
 
@@ -18,42 +40,18 @@
 
     <body>
         <form action="./api/select_scores.php" method="post">
-            <div class="form-check">
-                <input class="form-check-input" type="radio" name="scores" id="inlineRadio1" value="max">
-                <label class="form-check-label" for="inlineRadio1">班級最高分</label>
-            </div>
-            <div class="form-check">
-                <input class="form-check-input" type="radio" name="scores" id="inlineRadio2" value="min">
-                <label class="form-check-label" for="inlineRadio2">班級最低分</label>
-            </div>
-            <div class="form-check">
-                <input class="form-check-input" type="radio" name="scores" id="inlineRadio2" value="pass">
-                <label class="form-check-label" for="inlineRadio2">班級合格學生</label>
-            </div>
-            <div class="form-check">
-                <input class="form-check-input" type="radio" name="scores" id="inlineRadio3" value="flunk">
-                <label class="form-check-label" for="inlineRadio3">班級需補考學生</label>
-            </div>
-            <div>
+
+            <select class="form-select form-select-lg mb-3" size="3" aria-label="size 3 select example" name="scores" id="selectScores">
+                <option selected value="flunk">需補考學生</option>
+                <option value="pass">合格學生</option>
+                <option value="max">班級最高分</option>
+                <option value="min">班級最低分</option>
+            </select>
+            <div class="selectBtn">
                 <input type="hidden" name="school_num" id="school_num" value="<?= $_POST['school_num'] ?>">
-                <input type="submit"  class="btn btn-success mt-2" value="查詢">
+                <input type="submit" class="btn btn-success mt-2" id="selBtn" value="查詢">
             </div>
         </form>
-        <!-- <form action="./api/select_scores.php" method="post">
-            <div>
-                <label for="scores"></label>
-                <select name="scores" id="scores">
-                    <option value="max">最高分</option>
-                    <option value="min">最低分</option>
-                    <option value="pass">及格</option>
-                    <option value="flunk">低於60分</option>
-                </select>
-            </div>
-            <div>
-                <input type="hidden" name="school_num" id="school_num" value="<?= $_POST['school_num'] ?>">
-                <input type="submit" value="送出">
-            </div>
-        </form> -->
     </body>
 </body>
 

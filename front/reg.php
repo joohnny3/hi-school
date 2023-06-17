@@ -10,19 +10,8 @@
 </head>
 
 <body>
-    <?php
-    if (isset($_GET['error'])) {
-        print "<span style='color:red'>";
-        print "資料不可為空";
-        print "</span>";
-    } elseif (isset($_GET['repeat'])) {
-        print "<span style='color:red'>";
-        print "帳號名稱已存在";
-        print "</span>";
-    }
-    ?>
     <div class="row mt-3" id="title">
-        <div class="col-6 border border-black">
+        <div class="col-6 border border-black" id="studentBox">
             <div id="studentCard" class="card" style="width: 12rem; margin: 20px 5px 20px 5px">
                 <img class="card-img-top" src="./photo/graduated.png" alt="image" style="width: 100%" />
                 <div class="card-body">
@@ -33,7 +22,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-6 border border-black">
+        <div class="col-6 border border-black" id="teacherBox">
             <div id="teacherCard" class="card" style="width: 12rem; margin: 20px 5px 20px 5px">
                 <img class="card-img-top" src="./photo/professor.png" alt="image" style="width: 100%" />
                 <div class="card-body">
@@ -46,9 +35,9 @@
             </div>
         </div>
     </div>
-    <div class="hr_">
+    <!-- <div class="hr_">
         <hr>
-    </div>
+    </div> -->
     <div id="regBox">
         <div id="formContainer" style="display: none;">
             <form action="./api/reg.php" method="post">
@@ -110,7 +99,7 @@
                 <div class="studentForm">
                     <div class="input-group mb-2">
                         <div class="input-group-prepend">
-                            <span class="input-group-text" id="inputGroup-sizing-default">出身日期</span>
+                            <span class="input-group-text" id="inputGroup-sizing-default">出生日期</span>
                         </div>
                         <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" name="birthday" id="birthday">
                     </div>
@@ -150,7 +139,7 @@
                 <div>
                     <input type="hidden" name="role" id="role" value="">
                 </div>
-                <div>
+                <div">
                     <button id="bReg" type="submit" value="註冊" class="btn btn-success">註冊 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-return-right" viewBox="0 0 16 16">
                             <path fill-rule="evenodd" d="M1.5 1.5A.5.5 0 0 0 1 2v4.8a2.5 2.5 0 0 0 2.5 2.5h9.793l-3.347 3.346a.5.5 0 0 0 .708.708l4.2-4.2a.5.5 0 0 0 0-.708l-4-4a.5.5 0 0 0-.708.708L13.293 8.3H3.5A1.5 1.5 0 0 1 2 6.8V2a.5.5 0 0 0-.5-.5z" />
                         </svg></button>
@@ -158,6 +147,17 @@
             </form>
         </div>
     </div>
+    <?php
+    if (isset($_GET['error'])) {
+        print "<div style='color:red;text-align:center'>";
+        print "註冊時出現問題 請重新註冊";
+        print "</div>";
+    } elseif (isset($_GET['repeat'])) {
+        print "<div style='color:red;text-align:center'>";
+        print "帳號已註冊";
+        print "</div>";
+    }
+    ?>
 
     <script>
         window.onload = () => {

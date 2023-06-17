@@ -76,7 +76,7 @@ include_once "sidebar.php";
         .dock {
             width: auto;
             height: 60px;
-            border-radius: 16px;
+            border-radius: 4px;
             display: flex;
             justify-content: center;
             position: absolute;
@@ -92,7 +92,7 @@ include_once "sidebar.php";
             display: flex;
             align-items: center;
             justify-content: center;
-            border-radius: 16px;
+            border-radius: 4px;
             background: rgba(83, 83, 83, 0.25);
             backdrop-filter: blur(13px);
             -webkit-backdrop-filter: blur(13px);
@@ -159,6 +159,7 @@ include_once "sidebar.php";
 </head>
 
 <body>
+
         <div id="adFull">
             <img src="./photo/teacher.png" id="adImage">
         </div> 
@@ -169,7 +170,7 @@ include_once "sidebar.php";
                 <?php for ($i = 0; $i < count($_SESSION['school_nums']); $i++) { ?>
                     <li class="li-<?= $i + 1; ?>">
                         <div class="name"></div>
-                        <img style="border-radius: 14px;" class="ico" src="./image/<?= $_SESSION['school_imgs'][$i]; ?>" data-value="<?= $_SESSION['school_nums'][$i]; ?>">
+                        <img style="border-radius: 2px;padding: 0 2px;" class="ico" src="./image/<?= $_SESSION['school_imgs'][$i]; ?>" data-value="<?= $_SESSION['school_nums'][$i]; ?>">
                     </li>
                 <?php }; ?>
             </div>

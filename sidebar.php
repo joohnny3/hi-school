@@ -8,7 +8,7 @@
                 </form>
             </span>
         <?php }; ?>
-        <?php if (isset($_POST['school_num'])) { ?>
+        <?php if (isset($_SESSION['school_nums'])) { ?>
             <span>
                 <form method="post" action="backend.php?do=select_scores">
                     <input type="hidden" name="school_num" value="<?= $_POST['school_num'] ?>">

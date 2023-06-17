@@ -74,17 +74,21 @@
             width: 70%;
         }
 
-        .intro>input {
+        textarea {
             width: 380px;
             height: 250px;
+            resize: none;
             padding: 5px;
             border: 1px solid #ced4da;
             border-radius: 0.375rem;
+            /* 用戶不能調整其大小 */
         }
 
-        .intro>input[value] {
-            text-overflow: ellipsis;
-            white-space: pre-wrap;
+        .header {
+            margin-bottom: -25px;
+        }
+        .footer{
+            padding-bottom: initial;
         }
     </style>
 </head>
@@ -138,9 +142,10 @@
                     </div>
                 </div>
                 <div class="footer">
-                    <button type="button" class="btn btn-secondary" disabled>簡介</button>
+                    <strong>簡介</strong> 
                 </div>
-                <div class="intro"><input type="text" name="intro" value="<?= $row['intro']; ?>"></div>
+                <div class="intro"><textarea name="intro"><?= nl2br($row['intro']) ?></textarea>
+                </div>
             </div>
             <button class="btn btn-success mt-2" type="submit">送出</button>
         </form>

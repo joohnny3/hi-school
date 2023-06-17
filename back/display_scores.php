@@ -14,6 +14,8 @@
         body>img{
             height: 30%;
             width: auto;
+            padding: 0 10px;
+            margin: 0 10px;
         }
         body{
             backdrop-filter: blur(8px) !important;
