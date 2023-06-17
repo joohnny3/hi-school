@@ -30,7 +30,7 @@ include_once "sidebar.php";
             margin: auto;
             background-repeat: no-repeat;
         }
-        
+
         #sidebar {
             position: fixed;
             left: -230px;
@@ -65,8 +65,8 @@ include_once "sidebar.php";
             display: none;
         }
 
-        
-       .control-center {
+
+        .control-center {
             -webkit-filter: invert(100%);
             filter: invert(100%);
             transform: scale(0.5);
@@ -130,25 +130,27 @@ include_once "sidebar.php";
 
         li:hover {
             margin: 0px 13px 0px 13px;
-        }      
+        }
+
         .ico {
             width: 100%;
             height: 100%;
             object-fit: cover;
             transition: 0.2s;
         }
-        
+
         .bLogout>a {
             text-decoration: none;
             font-size: 18px;
         }
+
         #adFull>img {
             width: 100vw !important;
             height: 100vh !important;
         }
 
         #adFull {
-           
+
             position: fixed;
             text-align: center;
             z-index: 9999;
@@ -159,10 +161,9 @@ include_once "sidebar.php";
 </head>
 
 <body>
-
-        <div id="adFull">
-            <img src="./photo/teacher.png" id="adImage">
-        </div> 
+    <div id="adFull">
+        <img src="./photo/teacher.png" id="adImage">
+    </div>
     <form id="myForm" action="./backend.php?do=student" method="post">
         <input type="hidden" name="school_num" id="school_num">
         <div class="dock">

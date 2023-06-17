@@ -11,13 +11,16 @@
             display: flex;
             flex-direction: inherit;
         }
-        body>img{
+
+        body>img {
             height: 30%;
             width: auto;
-            padding: 0 10px;
-            margin: 0 10px;
+            margin: 0 13px;
+            border-radius: 27px;
+            border: 7px dashed white;
         }
-        body{
+
+        body {
             backdrop-filter: blur(8px) !important;
         }
     </style>
