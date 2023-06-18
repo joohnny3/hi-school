@@ -3,7 +3,7 @@
         <?php if (isset($_SESSION['school_nums'])) { ?>
             <span>
                 <form method="post" action="backend.php?do=select_scores">
-                    <input type="hidden" name="school_num" value="<?= $_POST['school_num'] ?>">
+                    <input type="hidden" name="school_num" value="<?= isset($_POST['school_num']) ? $_POST['school_num'] : $_SESSION['school_nums'][0] ;?>">
                     <button type="submit" class="btn btn-link">成績查詢</button>
                 </form>
             </span>
