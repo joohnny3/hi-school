@@ -42,3 +42,11 @@ body::before {
 body::backdrop {
   backdrop-filter: none;
 }
+.back>a {
+  color: white;
+  position: absolute;
+  top: 90%;
+  left: 2%;
+  text-decoration: none;
+  font-size: 18px;
+}
