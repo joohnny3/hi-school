@@ -30,11 +30,13 @@
         #mesTitle {
             font-size: 40px;
             margin-bottom: 15px;
+            padding-left: 4vw;
         }
 
         #box {
             border-radius: 3px;
             overflow-y: auto;
+            padding-right: 4vw;
         }
 
         #content {
