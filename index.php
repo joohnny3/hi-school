@@ -23,6 +23,7 @@
         if (empty($_GET)) { ?>
             <div class="message" style="display: flex;">
                 <a href="index.php?do=message_board">Message</a>
+                <!-- <a href="index.php?do=message_board">vote</a> -->
             </div>
         <?php }
         ?>

@@ -16,7 +16,7 @@
         }
 
         img {
-            border: 4px dashed white;
+            border: 50px solid #ffffff14;
         }
 
         .card {

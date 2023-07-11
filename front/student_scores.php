@@ -51,37 +51,25 @@
                 data: {
                     labels: ['第一次模擬考', '第二次模擬考', '第三次模擬考', '第四次模擬考', '第五次模擬考'],
                     datasets: [{
-                        label: '模擬考成績', // 圖表的標籤
+                        label: '模擬考成績', 
                         data: [
                             <?= $value['scores']; ?>,
                             <?= $value['scores_2']; ?>,
                             <?= $value['scores_3']; ?>,
                             <?= $value['scores_4']; ?>,
                             <?= $value['scores_5']; ?>
-                        ], // 圖表的數據
-                        backgroundColor: [
-                            'rgba(255, 99, 132, 0.2)',
-                            'rgba(54, 162, 235, 0.2)',
-                            'rgba(255, 206, 86, 0.2)',
-                            'rgba(75, 192, 192, 0.2)',
-                            'rgba(153, 102, 255, 0.2)'
-                        ], // 條形顏色
-                        borderColor: [
-                            'rgba(255, 99, 132, 1)',
-                            'rgba(54, 162, 235, 1)',
-                            'rgba(255, 206, 86, 1)',
-                            'rgba(75, 192, 192, 1)',
-                            'rgba(153, 102, 255, 1)'
-                        ], // 條形邊線顏色
-                        borderWidth: 1 // 條形邊線寬度
+                        ], 
+                        backgroundColor: "rgba(54, 162, 235, 0.2)",
+                        borderColor:  "rgb(54, 162, 235)",
+                        borderWidth: 1 
                     }]
                 },
                 options: {
                     scales: {
                         y: {
                             beginAtZero: true,
-                            min: 0, // 設定最小值
-                            max: 100 // 設定最大值
+                            min: 0, 
+                            max: 100 
                         }
                     }
                 }

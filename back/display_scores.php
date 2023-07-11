@@ -17,7 +17,7 @@
             width: auto;
             margin: 0 13px;
             border-radius: 7px;
-            border: 1px dashed white;
+            border: 4px solid #ffffff8c;
             margin-bottom: 4px;
         }
         .scoreStudent{
