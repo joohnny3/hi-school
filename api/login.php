@@ -1,6 +1,17 @@
 <?php require_once "../db.php";
 
-$chk = _count('permissions', ['user' => $_POST['user'], 'password' => $_POST['password']]);
+class Login extends DB
+{
+    function __construct()
+    {
+        parent::__construct();
+    }
+}
+
+$Login = new Login;
+
+
+$chk = $Login->_count('permissions', ['user' => $_POST['user'], 'password' => $_POST['password']]);
 
 if ($chk) {
 

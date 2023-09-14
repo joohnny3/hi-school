@@ -1,6 +1,17 @@
 <?php require_once "../db.php";
 
-$repeat = _count('permissions', ['user' => $_POST['user']]);
+class Reg extends DB
+{
+    function __construct()
+    {
+        parent::__construct();
+    }
+}
+
+$Reg = new Reg;
+
+
+$repeat = $Reg->_count('permissions', ['user' => $_POST['user']]);
 
 if ($repeat) {
     header("location:../index.php?do=reg&repeat=1");

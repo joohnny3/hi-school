@@ -1,6 +1,16 @@
 <?php
 require_once "../db.php";
 
+class Edit extends DB
+{
+     function __construct()
+     {
+          parent::__construct();
+     }
+}
+
+$Edit = new Edit;
+
 $sql = "update `students` 
      set  
       `en_name`='{$_POST['en_name']}',

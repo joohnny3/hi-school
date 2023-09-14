@@ -1,5 +1,15 @@
 <?php require_once "../db.php";
 
+class Scores extends DB
+{
+    function __construct()
+    {
+        parent::__construct();
+    }
+}
+
+$Scores = new Scores;
+
 
 $chk = _count('scores', ['school_num' => $_POST['school_num']]);
 

@@ -1,6 +1,16 @@
 <?php
 require_once "../db.php";
 
+class Photo extends DB
+{
+    function __construct()
+    {
+        parent::__construct();
+    }
+}
+
+$Photo = new Photo;
+
 
 if ($_FILES['img']['error'] == 0) {
 
